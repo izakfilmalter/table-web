@@ -4,62 +4,23 @@ import { cn } from '@/lib/utils'
 
 import './globals.css'
 
-import { ReactNode } from 'react'
+import type { ReactNode } from 'react'
 
-const fontDisplay = localFont({
+const fontSans = localFont({
   src: [
-    // {
-    //   weight: '100',
-    //   path: './fonts/objectSans/PPObjectSans-Thin.woff2',
-    //   style: 'normal',
-    // },
-    // {
-    //   weight: '100',
-    //   path: './fonts/objectSans/PPObjectSans-ThinSlanted.woff2',
-    //   style: 'italic',
-    // },
-    // {
-    //   weight: '300',
-    //   path: './fonts/objectSans/PPObjectSans-Regular.woff2',
-    //   style: 'normal',
-    // },
-    // {
-    //   weight: '300',
-    //   path: './fonts/objectSans/PPObjectSans-Slanted.woff2',
-    //   style: 'italic',
-    // },
     {
-      weight: '600',
-      path: './fonts/objectSans/PPObjectSans-Bold.woff2',
-      style: 'normal',
-    },
-    // {
-    //   weight: '600',
-    //   path: './fonts/objectSans/PPObjectSans-BoldSlanted.woff2',
-    //   style: 'italic',
-    // },
-    {
-      weight: '800',
-      path: './fonts/objectSans/PPObjectSans-Heavy.woff2',
+      weight: '750',
+      path: './fonts/NeueHaasDisplayBold.woff2',
       style: 'normal',
     },
     {
-      weight: '800',
-      path: './fonts/objectSans/PPObjectSans-HeavySlanted.woff2',
+      weight: '750',
+      path: './fonts/NeueHaasDisplayBoldItalic.woff2',
       style: 'italic',
     },
   ],
   display: 'swap',
-  variable: '--font-display',
-})
-
-const geistSans = localFont({
-  src: './fonts/GeistVF.woff',
-  variable: '--font-geist-sans',
-})
-const geistMono = localFont({
-  src: './fonts/GeistMonoVF.woff',
-  variable: '--font-geist-mono',
+  variable: '--font-sans',
 })
 
 export const metadata: Metadata = {
@@ -73,10 +34,8 @@ export default function RootLayout({
   children: ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className={cn(geistSans.variable, geistMono.variable)}>
-        {children}
-      </body>
+    <html lang={"en"}>
+      <body className={cn(fontSans.variable)}>{children}</body>
     </html>
   )
 }
