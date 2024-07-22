@@ -1,140 +1,43 @@
-import Image from 'next/image'
+import { Logo } from '@/components/logo'
 
 export default function Home() {
   return (
     <div
       className={
-        'grid min-h-screen grid-rows-[20px_1fr_20px] items-center justify-items-center gap-16 p-8 pb-20 font-sans sm:p-20'
+        'mx-auto my-16 flex max-w-[732px] flex-col items-start gap-16 px-8'
       }
     >
-      <main
-        className={
-          'row-start-2 flex flex-col items-center gap-8 sm:items-start'
-        }
-      >
-        <Image
-          className={'dark:invert'}
-          src={'/next.svg'}
-          alt={'Next.js logo'}
-          width={180}
-          height={38}
-          priority
-        />
-        <ol
-          className={
-            'list-inside list-decimal text-center font-mono text-sm sm:text-left'
-          }
-        >
-          <li className={'mb-2'}>
-            Get started by editing{' '}
-            <code
-              className={
-                'rounded bg-black/[.05] px-1 py-0.5 font-semibold dark:bg-white/[.06]'
-              }
-            >
-              app/page.tsx
-            </code>
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+      <Logo className={'h-auto w-full md:h-32 md:w-auto'} />
 
-        <div className={'flex flex-col items-center gap-4 sm:flex-row'}>
-          <a
-            className={
-              'flex h-10 items-center justify-center gap-2 rounded-full border border-solid border-transparent bg-foreground px-4 text-sm text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] sm:h-12 sm:px-5 sm:text-base'
-            }
-            href={
-              'https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app'
-            }
-            target={'_blank'}
-            rel={'noopener noreferrer'}
-          >
-            <Image
-              className={'dark:invert'}
-              src={'/vercel.svg'}
-              alt={'Vercel logomark'}
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className={
-              'flex h-10 items-center justify-center rounded-full border border-solid border-black/[.08] px-4 text-sm transition-colors hover:border-transparent hover:bg-[#f2f2f2] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] sm:h-12 sm:min-w-44 sm:px-5 sm:text-base'
-            }
-            href={
-              'https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app'
-            }
-            target={'_blank'}
-            rel={'noopener noreferrer'}
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer
-        className={
-          'row-start-3 flex flex-wrap items-center justify-center gap-6'
-        }
-      >
-        <a
-          className={
-            'flex items-center gap-2 hover:underline hover:underline-offset-4'
-          }
-          href={
-            'https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app'
-          }
-          target={'_blank'}
-          rel={'noopener noreferrer'}
-        >
-          <Image
-            aria-hidden
-            src={'/file-text.svg'}
-            alt={'File icon'}
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className={
-            'flex items-center gap-2 hover:underline hover:underline-offset-4'
-          }
-          href={
-            'https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app'
-          }
-          target={'_blank'}
-          rel={'noopener noreferrer'}
-        >
-          <Image
-            aria-hidden
-            src={'/window.svg'}
-            alt={'Window icon'}
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className={
-            'flex items-center gap-2 hover:underline hover:underline-offset-4'
-          }
-          href={
-            'https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app'
-          }
-          target={'_blank'}
-          rel={'noopener noreferrer'}
-        >
-          <Image
-            aria-hidden
-            src={'/globe.svg'}
-            alt={'Globe icon'}
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      <p className={'text-4xl'}>
+        Welcome to the next iteration of church. A church centered around the
+        Lord’s Table, Christ and Christ crucified. A church whose mission is the
+        Great Commission.
+        <br />
+        <br />
+        Say hello to the church that gathers in the home. A place for the lost
+        to finally find home. Where a family of believers care for one another
+        in the home. A city covered in Tables.
+        <br />
+        <br />
+        Welcome to Tribe; a large gathering from every Table across the city.
+        Brought together for worship, prayer for the harvest, and meeting for
+        revival. A place that equips believers for the great commission, and
+        sends them into the harvest.
+        <br />
+        <br />
+        The next iteration of church is the same as the first iteration of
+        church. We read the Book of Acts, we do the Book of Acts. It’s not just
+        history, it’s the model for His bride.
+        <br />
+        <br />
+        Come take a seat at the Table. Break bread with your Savior. Be marked
+        by His blood. Be driven by love for the lost. It’s time for Revival.
+        Let’s hasten the return of our Lord, Jesus.
+        <br />
+        <br />
+        Say hello to your Table.
+      </p>
     </div>
   )
 }
