@@ -12,7 +12,7 @@ import type {
 
 export const Email: React.FC<
   EmailField & {
-    errors: Partial<FieldErrorsImpl<Record<string, any>>>
+    errors: Partial<FieldErrorsImpl<Record<string, unknown>>>
     register: UseFormRegister<FieldValues>
   }
 > = ({
@@ -30,12 +30,14 @@ export const Email: React.FC<
       defaultValue={defaultValue}
       id={name}
       type={'text'}
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
       {...register(name, {
         pattern: /^\S[^\s@]*@\S+$/,
         required: requiredFromProps,
       })}
     />
 
+    {/* eslint-disable-next-line @typescript-eslint/no-unsafe-member-access */}
     {requiredFromProps && errors[name] && <Error />}
   </Width>
 )

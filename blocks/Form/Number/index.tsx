@@ -30,8 +30,10 @@ export const Number: React.FC<
       defaultValue={defaultValue}
       id={name}
       type={'number'}
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
       {...register(name, { required: requiredFromProps })}
     />
+    {/* eslint-disable-next-line @typescript-eslint/no-unsafe-member-access */}
     {requiredFromProps && errors[name] && <Error />}
   </Width>
 )

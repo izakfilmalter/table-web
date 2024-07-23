@@ -7,7 +7,7 @@ import type { Post } from 'payload-types'
 export type RelatedPostsProps = {
   className?: string
   docs?: Array<Post>
-  introContent?: any
+  introContent?: unknown
 }
 
 export const RelatedPosts: React.FC<RelatedPostsProps> = (props) => {
@@ -15,7 +15,11 @@ export const RelatedPosts: React.FC<RelatedPostsProps> = (props) => {
 
   return (
     <div className={clsx('container', className)}>
-      {introContent && <RichText content={introContent} enableGutter={false} />}
+      {introContent ? (
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        <RichText content={introContent} enableGutter={false} />
+      ) : null}
 
       <div
         className={

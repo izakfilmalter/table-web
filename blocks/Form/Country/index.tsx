@@ -25,6 +25,7 @@ export const Country: React.FC<
       {label}
     </Label>
     <Controller
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       control={control}
       defaultValue={''}
       name={name}
@@ -33,6 +34,7 @@ export const Country: React.FC<
 
         return (
           <Select
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-call,@typescript-eslint/no-unsafe-return
             onValueChange={(val) => onChange(val)}
             value={controlledValue?.value}
           >
@@ -40,6 +42,7 @@ export const Country: React.FC<
               <SelectValue placeholder={label} />
             </SelectTrigger>
             <SelectContent>
+              {/* eslint-disable-next-line @typescript-eslint/no-shadow */}
               {countryOptions.map(({ label, value }) => (
                 <SelectItem key={value} value={value}>
                   {label}
@@ -52,6 +55,7 @@ export const Country: React.FC<
       rules={{ required }}
     />
     {}
+    {/* eslint-disable-next-line @typescript-eslint/no-unsafe-member-access */}
     {required && errors[name] && <Error />}
   </Width>
 )

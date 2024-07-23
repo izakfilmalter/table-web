@@ -9,6 +9,7 @@ export const LivePreviewListener: React.FC = () => {
   const router = useRouter()
   return (
     <PayloadLivePreview
+      // eslint-disable-next-line @typescript-eslint/unbound-method
       refresh={router.refresh}
       serverURL={env.NEXT_PUBLIC_PAYLOAD_URL}
     />

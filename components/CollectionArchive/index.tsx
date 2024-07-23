@@ -19,6 +19,7 @@ export const CollectionArchive: React.FC<Props> = (props) => {
           }
         >
           {posts.map((result, index) => {
+            // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
             if (typeof result === 'object' && result !== null) {
               return (
                 <div className={'col-span-4'} key={index}>

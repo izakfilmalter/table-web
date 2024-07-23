@@ -24,6 +24,7 @@ export const PostHero: React.FC<{
         <div className={'col-span-1 col-start-1 md:col-span-2 md:col-start-2'}>
           <div className={'mb-6 text-sm uppercase'}>
             {categories?.map((category, index) => {
+              // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
               if (typeof category === 'object' && category !== null) {
                 const { title: categoryTitle } = category
 

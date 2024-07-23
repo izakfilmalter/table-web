@@ -11,18 +11,23 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import type { StateField } from '@payloadcms/plugin-form-builder/types'
-import type { Control, FieldErrorsImpl, FieldValues } from 'react-hook-form'
-import { Controller } from 'react-hook-form'
+import {
+  Control,
+  Controller,
+  FieldErrorsImpl,
+  FieldValues,
+} from 'react-hook-form'
 
 export const State: React.FC<
   StateField & {
-    control: Control<FieldValues, any>
-    errors: Partial<FieldErrorsImpl<Record<string, any>>>
+    control: Control<FieldValues, unknown>
+    errors: Partial<FieldErrorsImpl<Record<string, unknown>>>
   }
 > = ({ name, control, errors, label, required, width }) => (
   <Width width={width}>
     <Label htmlFor={name}>{label}</Label>
     <Controller
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       control={control}
       defaultValue={''}
       name={name}
@@ -31,6 +36,7 @@ export const State: React.FC<
 
         return (
           <Select
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-call,@typescript-eslint/no-unsafe-return
             onValueChange={(val) => onChange(val)}
             value={controlledValue?.value}
           >
@@ -38,6 +44,7 @@ export const State: React.FC<
               <SelectValue placeholder={label} />
             </SelectTrigger>
             <SelectContent>
+              {/* eslint-disable-next-line @typescript-eslint/no-shadow */}
               {stateOptions.map(({ label, value }) => (
                 <SelectItem key={value} value={value}>
                   {label}
@@ -49,6 +56,7 @@ export const State: React.FC<
       }}
       rules={{ required }}
     />
+    {/* eslint-disable-next-line @typescript-eslint/no-unsafe-member-access */}
     {required && errors[name] && <Error />}
   </Width>
 )

@@ -11,12 +11,14 @@ const heroes = {
 }
 
 export const Hero: React.FC<Page['hero']> = (props) => {
-  const { type } = props || {}
+  const { type } = props
 
+  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
   if (!type || type === 'none') return null
 
   const HeroToRender = heroes[type]
 
+  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
   if (!HeroToRender) return null
 
   return <HeroToRender {...props} />

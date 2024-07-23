@@ -15,13 +15,14 @@ import { Controller } from 'react-hook-form'
 
 export const Select: React.FC<
   SelectField & {
-    control: Control<FieldValues, any>
-    errors: Partial<FieldErrorsImpl<Record<string, any>>>
+    control: Control<FieldValues, unknown>
+    errors: Partial<FieldErrorsImpl<Record<string, unknown>>>
   }
 > = ({ name, control, errors, label, options, required, width }) => (
   <Width width={width}>
     <Label htmlFor={name}>{label}</Label>
     <Controller
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       control={control}
       defaultValue={''}
       name={name}
@@ -30,6 +31,7 @@ export const Select: React.FC<
 
         return (
           <SelectComponent
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-call,@typescript-eslint/no-unsafe-return
             onValueChange={(val) => onChange(val)}
             value={controlledValue?.value}
           >
@@ -37,6 +39,7 @@ export const Select: React.FC<
               <SelectValue placeholder={label} />
             </SelectTrigger>
             <SelectContent>
+              {/* eslint-disable-next-line @typescript-eslint/no-shadow */}
               {options.map(({ label, value }) => (
                 <SelectItem key={value} value={value}>
                   {label}
@@ -48,6 +51,7 @@ export const Select: React.FC<
       }}
       rules={{ required }}
     />
+    {/* eslint-disable-next-line @typescript-eslint/no-unsafe-member-access */}
     {required && errors[name] && <Error />}
   </Width>
 )

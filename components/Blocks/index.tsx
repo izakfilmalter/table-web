@@ -20,6 +20,7 @@ export const Blocks: React.FC<{
 }> = (props) => {
   const { blocks } = props
 
+  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
   const hasBlocks = blocks && Array.isArray(blocks) && blocks.length > 0
 
   if (hasBlocks) {
@@ -28,12 +29,15 @@ export const Blocks: React.FC<{
         {blocks.map((block, index) => {
           const { blockName, blockType } = block
 
+          // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
           if (blockType && blockType in blockComponents) {
             const Block = blockComponents[blockType]
 
+            // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
             if (Block) {
               return (
                 <div className={'my-16'} key={index}>
+                  {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
                   {/* @ts-expect-error */}
                   <Block id={toKebabCase(blockName)} {...block} />
                 </div>

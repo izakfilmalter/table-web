@@ -24,12 +24,12 @@ export const Card: React.FC<{
     title: titleFromProps,
   } = props
 
-  const { slug, categories, meta, title } = doc || {}
-  const { description, image: metaImage } = meta || {}
+  const { slug, categories, meta, title } = doc ?? {}
+  const { description, image: metaImage } = meta ?? {}
 
   const hasCategories =
     categories && Array.isArray(categories) && categories.length > 0
-  const titleToUse = titleFromProps || title
+  const titleToUse = titleFromProps ?? title
   const sanitizedDescription = description?.replace(/\s/g, ' ') // replace non-breaking space with white space
   const href = `/${relationTo}/${slug}`
 
@@ -50,6 +50,7 @@ export const Card: React.FC<{
       <div className={'p-4'}>
         {showCategories && hasCategories && (
           <div className={'mb-4 text-sm uppercase'}>
+            {/* eslint-disable-next-line @typescript-eslint/no-unnecessary-condition */}
             {showCategories && hasCategories && (
               <div>
                 {categories.map((category, index) => {

@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
 //This copy-and-pasted from lexical here: https://github.com/facebook/lexical/blob/c2ceee223f46543d12c574e62155e619f9a18a5d/packages/lexical/src/LexicalConstants.ts
 
@@ -64,6 +65,7 @@ export const IS_ALIGN_END = 6
 
 // Reconciliation
 export const NON_BREAKING_SPACE = '\u00A0'
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const ZERO_WIDTH_SPACE = '\u200b'
 
 export const DOUBLE_LINE_BREAK = '\n\n'
@@ -77,10 +79,13 @@ const LTR =
   '\u00F8-\u02B8\u0300-\u0590\u0800-\u1FFF\u200E\u2C00-\uFB1C' +
   '\uFE00-\uFE6F\uFEFD-\uFFFF'
 
+// eslint-disable-next-line no-misleading-character-class
 export const RTL_REGEX = new RegExp('^[^' + LTR + ']*[' + RTL + ']')
 
+// eslint-disable-next-line no-misleading-character-class
 export const LTR_REGEX = new RegExp('^[^' + RTL + ']*[' + LTR + ']')
 
+// eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents
 export const TEXT_TYPE_TO_FORMAT: Record<TextFormatType | string, number> = {
   bold: IS_BOLD,
   code: IS_CODE,
@@ -92,6 +97,7 @@ export const TEXT_TYPE_TO_FORMAT: Record<TextFormatType | string, number> = {
   underline: IS_UNDERLINE,
 }
 
+// eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents
 export const DETAIL_TYPE_TO_DETAIL: Record<TextDetailType | string, number> = {
   directionless: IS_DIRECTIONLESS,
   unmergeable: IS_UNMERGEABLE,

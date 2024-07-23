@@ -12,10 +12,10 @@ import type {
 
 export const Checkbox: React.FC<
   CheckboxField & {
-    errors: Partial<FieldErrorsImpl<Record<string, any>>>
-    getValues: any
+    errors: Partial<FieldErrorsImpl<Record<string, unknown>>>
+    getValues: unknown
     register: UseFormRegister<FieldValues>
-    setValue: any
+    setValue: unknown
   }
 > = ({
   name,
@@ -31,10 +31,12 @@ export const Checkbox: React.FC<
       <CheckboxUi
         defaultChecked={defaultValue}
         id={name}
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-call
         {...register(name, { required: requiredFromProps })}
       />
       <Label htmlFor={name}>{label}</Label>
     </div>
+    {/* eslint-disable-next-line @typescript-eslint/no-unsafe-member-access */}
     {requiredFromProps && errors[name] && <Error />}
   </Width>
 )

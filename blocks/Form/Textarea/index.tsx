@@ -36,6 +36,7 @@ export const Textarea: React.FC<
       {...register(name, { required: requiredFromProps })}
     />
 
+    {/* eslint-disable-next-line @typescript-eslint/no-unsafe-member-access */}
     {requiredFromProps && errors[name] && <Error />}
   </Width>
 )

@@ -30,6 +30,7 @@ export const Text: React.FC<
       defaultValue={defaultValue}
       id={name}
       type={'text'}
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
       {...register(name, { required: requiredFromProps })}
     />
     {requiredFromProps && errors[name] && <Error />}

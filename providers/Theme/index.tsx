@@ -37,7 +37,7 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
       const implicitPreference = getImplicitPreference()
       document.documentElement.setAttribute(
         'data-theme',
-        implicitPreference || '',
+        implicitPreference ?? '',
       )
       if (implicitPreference) setThemeState(implicitPreference)
     } else {
