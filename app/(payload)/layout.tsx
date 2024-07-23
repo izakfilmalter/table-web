@@ -4,13 +4,13 @@ import configPromise from '@payload-config'
 import '@payloadcms/next/css'
 
 /* DO NOT MODIFY IT BECAUSE IT COULD BE REWRITTEN AT ANY TIME. */
-import React from 'react'
+import type { ReactNode } from 'react'
 import { RootLayout } from '@payloadcms/next/layouts'
 
 import './custom.scss'
 
 type Args = {
-  children: React.ReactNode
+  children: ReactNode
 }
 
 const Layout = ({ children }: Args) => (

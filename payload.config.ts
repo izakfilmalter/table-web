@@ -1,4 +1,4 @@
-import { env } from '@/env'
+import { env } from '@/env.mjs'
 import { postgresAdapter } from '@payloadcms/db-postgres'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import { buildConfig } from 'payload'
@@ -7,6 +7,23 @@ import sharp from 'sharp'
 export default buildConfig({
   // If you'd like to use Rich Text, pass your editor here
   editor: lexicalEditor(),
+
+  globals: [
+    {
+      slug: 'vision',
+      fields: [
+        {
+          name: 'content',
+          type: 'richText',
+        },
+      ],
+      versions: {
+        drafts: {
+          autosave: true,
+        },
+      },
+    },
+  ],
 
   // Define and configure your collections in this array
   collections: [],
@@ -27,4 +44,11 @@ export default buildConfig({
   // This is optional - if you don't need to do these things,
   // you don't need it!
   sharp,
+
+  admin: {
+    livePreview: {
+      url: 'http://localhost:3000',
+      globals: ['vision'],
+    },
+  },
 })
