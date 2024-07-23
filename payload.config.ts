@@ -1,3 +1,4 @@
+import { env } from '@/env'
 import { postgresAdapter } from '@payloadcms/db-postgres'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import { buildConfig } from 'payload'
@@ -11,14 +12,14 @@ export default buildConfig({
   collections: [],
 
   // Your Payload secret - should be a complex and secure string, unguessable
-  secret: process.env.PAYLOAD_SECRET || '',
+  secret: env.PAYLOAD_SECRET,
   // Whichever Database Adapter you're using should go here
   // Mongoose is shown as an example, but you can also use Postgres
   db: postgresAdapter({
     // Postgres-specific arguments go here.
     // `pool` is required.
     pool: {
-      connectionString: process.env.DATABASE_URI,
+      connectionString: env.DATABASE_URL,
     },
   }),
   // If you want to resize images, crop, set focal point, etc.
