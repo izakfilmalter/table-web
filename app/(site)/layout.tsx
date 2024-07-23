@@ -1,13 +1,33 @@
-import type { Metadata } from 'next'
-import localFont from 'next/font/local'
 import { cn } from '@/lib/utils'
 
 import './globals.css'
 
 import type { ReactNode } from 'react'
+import type { Metadata } from 'next'
+import localFont from 'next/font/local'
 
 const fontSans = localFont({
   src: [
+    {
+      weight: '400',
+      path: './fonts/NeueHaasDisplayRoman.woff2',
+      style: 'normal',
+    },
+    {
+      weight: '400',
+      path: './fonts/NeueHaasDisplayRomanItalic.woff2',
+      style: 'italic',
+    },
+    {
+      weight: '500',
+      path: './fonts/NeueHaasDisplayMedium.woff2',
+      style: 'normal',
+    },
+    {
+      weight: '500',
+      path: './fonts/NeueHaasDisplayMediumItalic.woff2',
+      style: 'italic',
+    },
     {
       weight: '750',
       path: './fonts/NeueHaasDisplayBold.woff2',
@@ -47,6 +67,8 @@ export default function RootLayout({
           fontSans.variable,
         )}
       >
+        {/*<Navigation />*/}
+
         {children}
       </body>
     </html>

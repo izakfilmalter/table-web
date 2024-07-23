@@ -16,7 +16,7 @@ export default async function Home() {
       >
         <Logo className={'h-auto w-full md:h-32 md:w-auto'} />
 
-        <RichText content={vision.content} className={'text-4xl'} />
+        <RichText content={vision.content} className={'text-4xl font-bold'} />
       </div>
       <RefreshRouteOnSave />
     </>
