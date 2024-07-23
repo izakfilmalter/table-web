@@ -1,6 +1,7 @@
 'use client'
 
-import React from 'react'
+import type { FC } from 'react'
+import { useState } from 'react'
 import type { StaticImageData } from 'next/image'
 import NextImage from 'next/image'
 import cssVariables from '@/app/cssVariables'
@@ -10,7 +11,7 @@ import { cn } from '@/utilities/cn'
 
 const { breakpoints } = cssVariables
 
-export const ImageMedia: React.FC<MediaProps> = (props) => {
+export const ImageMedia: FC<MediaProps> = (props) => {
   const {
     alt: altFromProps,
     fill,
@@ -23,17 +24,17 @@ export const ImageMedia: React.FC<MediaProps> = (props) => {
     src: srcFromProps,
   } = props
 
-  const [isLoading, setIsLoading] = React.useState(true)
+  const [_isLoading, setIsLoading] = useState(true)
 
-  let width: number | undefined
-  let height: number | undefined
+  let width: number | undefined | null
+  let height: number | undefined | null
   let alt = altFromProps
-  let src: StaticImageData | string = srcFromProps || ''
+  let src: StaticImageData | string = srcFromProps ?? ''
 
   if (!src && resource && typeof resource === 'object') {
     const {
       alt: altFromResource,
-      filename: fullFilename,
+      filename: _fullFilename,
       height: fullHeight,
       url,
       width: fullWidth,
@@ -55,10 +56,10 @@ export const ImageMedia: React.FC<MediaProps> = (props) => {
 
   return (
     <NextImage
-      alt={alt || ''}
+      alt={alt ?? ''}
       className={cn(imgClassName)}
       fill={fill}
-      height={!fill ? height : undefined}
+      height={!fill && height ? height : undefined}
       onClick={onClick}
       onLoad={() => {
         setIsLoading(false)
@@ -70,7 +71,7 @@ export const ImageMedia: React.FC<MediaProps> = (props) => {
       quality={90}
       sizes={sizes}
       src={src}
-      width={!fill ? width : undefined}
+      width={!fill && width ? width : undefined}
     />
   )
 }

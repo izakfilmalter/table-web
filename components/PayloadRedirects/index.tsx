@@ -17,7 +17,7 @@ export const PayloadRedirects: React.FC<Props> = async ({
 
   const redirects = await getCachedRedirects()()
 
-  const redirectItem = redirects.find((redirect) => redirect.from === slug)
+  const redirectItem = redirects.find((x) => x.from === slug)
 
   if (redirectItem) {
     if (redirectItem.to?.url) {
@@ -32,6 +32,8 @@ export const PayloadRedirects: React.FC<Props> = async ({
 
       const document = await getCachedDocument(collection, id)()
       redirectUrl = `${redirectItem.to.reference.relationTo !== 'pages' ? `/${redirectItem.to.reference.relationTo}` : ''}/${
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
         document?.slug
       }`
     } else {

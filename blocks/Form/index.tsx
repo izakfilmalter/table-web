@@ -43,15 +43,18 @@ export const FormBlock: React.FC<
   } = props
 
   const formMethods = useForm({
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     defaultValues: buildInitialFormState(formFromProps.fields),
   })
+
   const {
     control,
     formState: { errors },
-    getValues,
+    // getValues,
     handleSubmit,
     register,
-    setValue,
+    // setValue,
   } = formMethods
 
   const [isLoading, setIsLoading] = useState(false)
@@ -92,6 +95,7 @@ export const FormBlock: React.FC<
             },
           )
 
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
           const res = await req.json()
 
           clearTimeout(loadingTimerID)
@@ -100,7 +104,9 @@ export const FormBlock: React.FC<
             setIsLoading(false)
 
             setError({
+              // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment,@typescript-eslint/no-unsafe-member-access
               message: res.errors?.[0]?.message || 'Internal Server Error',
+              // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment,@typescript-eslint/no-unsafe-member-access
               status: res.status,
             })
 
@@ -141,15 +147,26 @@ export const FormBlock: React.FC<
         />
       )}
       {!isLoading && hasSubmitted && confirmationType === 'message' && (
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         <RichText content={confirmationMessage} />
       )}
       {isLoading && !hasSubmitted && <p>Loading, please wait...</p>}
-      {error && <div>{`${error.status || '500'}: ${error.message || ''}`}</div>}
+      {error && <div>{`${error.status ?? '500'}: ${error.message || ''}`}</div>}
       {!hasSubmitted && (
-        <form id={formID} onSubmit={handleSubmit(onSubmit)}>
+        <form
+          id={formID}
+          /* eslint-disable @typescript-eslint/ban-ts-comment */
+          // @ts-ignore
+          onSubmit={handleSubmit(onSubmit)}
+          /* eslint-enable @typescript-eslint/ban-ts-comment */
+        >
           <div className={'mb-4 last:mb-0'}>
             {formFromProps.fields.map((field, index) => {
-              const Field: React.FC<any> = fields[field.blockType]
+              /* eslint-disable @typescript-eslint/no-unsafe-assignment,@typescript-eslint/ban-ts-comment */
+              // @ts-ignore
+              const Field: React.FC<unknown> = fields[field.blockType]
+              /* eslint-enable @typescript-eslint/no-unsafe-assignment,@typescript-eslint/ban-ts-comment */
+              // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
               if (Field) {
                 return (
                   <div className={'mb-6 last:mb-0'} key={index}>
@@ -157,9 +174,12 @@ export const FormBlock: React.FC<
                       form={formFromProps}
                       {...field}
                       {...formMethods}
+                      /* eslint-disable @typescript-eslint/ban-ts-comment */
+                      // @ts-ignore
                       control={control}
                       errors={errors}
                       register={register}
+                      /* eslint-enable @typescript-eslint/ban-ts-comment */
                     />
                   </div>
                 )

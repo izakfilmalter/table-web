@@ -1,10 +1,12 @@
-import React from 'react'
+import type { ComponentProps, FC } from 'react'
 import { Width } from '@/blocks/Form/Width'
 import RichText from '@/components/RichText'
-import type { MessageField } from '@payloadcms/plugin-form-builder/types'
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import type { MessageField } from '@payloadcms/plugin-form-builder/dist/types'
 
-export const Message: React.FC<MessageField> = ({ message }) => (
+export const Message: FC<MessageField> = ({ message }) => (
   <Width className={'my-12'} width={'100'}>
-    <RichText content={message} />
+    <RichText content={message as ComponentProps<typeof RichText>['content']} />
   </Width>
 )

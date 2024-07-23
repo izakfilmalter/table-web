@@ -1,9 +1,11 @@
 import { draftMode } from 'next/headers'
 import { redirect } from 'next/navigation'
+import { env } from '@/env.mjs'
 import jwt from 'jsonwebtoken'
 
 const payloadToken = 'payload-token'
 
+// eslint-disable-next-line @typescript-eslint/require-await
 export async function GET(
   req: Request & {
     cookies: {
@@ -25,7 +27,7 @@ export async function GET(
     new Response('You are not allowed to preview this page', { status: 403 })
   }
 
-  const user = jwt.decode(token, process.env.PAYLOAD_SECRET)
+  const user = jwt.verify(token, env.PAYLOAD_SECRET)
 
   if (!user) {
     draftMode().disable()

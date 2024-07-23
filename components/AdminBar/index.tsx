@@ -1,10 +1,12 @@
 'use client'
 
-import React, { useState } from 'react'
+import type { FC } from 'react'
+import { useCallback, useState } from 'react'
 import { useSelectedLayoutSegments } from 'next/navigation'
 import { env } from '@/env.mjs'
 import { cn } from '@/utilities/cn'
-import type { PayloadAdminBarProps } from 'payload-admin-bar'
+import { Option, pipe } from 'effect'
+import type { PayloadAdminBarProps, PayloadMeUser } from 'payload-admin-bar'
 import { PayloadAdminBar } from 'payload-admin-bar'
 
 const collectionLabels = {
@@ -22,18 +24,20 @@ const collectionLabels = {
   },
 }
 
-const Title: React.FC = () => <span>Dashboard</span>
+const Title: FC = () => <span>Dashboard</span>
 
-export const AdminBar: React.FC<{
+export const AdminBar: FC<{
   adminBarProps?: PayloadAdminBarProps
-}> = (props) => {
-  const { adminBarProps } = props || {}
+}> = (props = {}) => {
+  const { adminBarProps = {} } = props
   const segments = useSelectedLayoutSegments()
   const [show, setShow] = useState(false)
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   const collection = collectionLabels[segments[1]] ? segments[1] : 'pages'
 
-  const onAuthChange = React.useCallback((user) => {
-    setShow(user?.id)
+  const onAuthChange = useCallback((user: PayloadMeUser) => {
+    setShow(pipe(user, Option.fromNullable, Option.isSome))
   }, [])
 
   return (
@@ -55,8 +59,12 @@ export const AdminBar: React.FC<{
           cmsURL={env.NEXT_PUBLIC_PAYLOAD_URL}
           collection={collection}
           collectionLabels={{
+            /*eslint-disable @typescript-eslint/no-unsafe-assignment,@typescript-eslint/no-unsafe-member-access,@typescript-eslint/ban-ts-comment */
+            // @ts-ignore
             plural: collectionLabels[collection]?.plural || 'Pages',
+            // @ts-ignore
             singular: collectionLabels[collection]?.singular || 'Page',
+            /* eslint-enable @typescript-eslint/no-unsafe-assignment,@typescript-eslint/no-unsafe-member-access,@typescript-eslint/ban-ts-comment */
           }}
           logo={<Title />}
           onAuthChange={onAuthChange}

@@ -32,15 +32,18 @@ export const PageRange: React.FC<{
     totalDocs,
   } = props
 
-  let indexStart = (currentPage ? currentPage - 1 : 1) * (limit || 1) + 1
+  let indexStart = (currentPage ? currentPage - 1 : 1) * (limit ?? 1) + 1
   if (totalDocs && indexStart > totalDocs) indexStart = 0
 
-  let indexEnd = (currentPage || 1) * (limit || 1)
+  let indexEnd = (currentPage ?? 1) * (limit ?? 1)
   if (totalDocs && indexEnd > totalDocs) indexEnd = totalDocs
 
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const { plural, singular } =
-    collectionLabelsFromProps ||
-    defaultCollectionLabels[collection || ''] ||
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    (collectionLabelsFromProps ?? defaultCollectionLabels[collection ?? '']) ||
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
     defaultLabels ||
     {}
 

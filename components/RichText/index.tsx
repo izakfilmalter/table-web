@@ -4,6 +4,7 @@ import { cn } from '@/utilities/cn'
 
 type Props = {
   className?: string
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   content?: Record<string, any> | null
   enableGutter?: boolean
   enableProse?: boolean

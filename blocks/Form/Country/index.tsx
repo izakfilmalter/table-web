@@ -25,7 +25,6 @@ export const Country: React.FC<
       {label}
     </Label>
     <Controller
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       control={control}
       defaultValue={''}
       name={name}
@@ -52,7 +51,7 @@ export const Country: React.FC<
       }}
       rules={{ required }}
     />
-    {/* eslint-disable-next-line @typescript-eslint/no-unsafe-member-access */}
+    {}
     {required && errors[name] && <Error />}
   </Width>
 )

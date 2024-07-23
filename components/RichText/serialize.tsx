@@ -119,12 +119,16 @@ export function serializeLexical({ nodes }: Props): JSX.Element {
           switch (blockType) {
             case 'cta':
               return <CallToActionBlock key={index} {...block} />
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
             case 'mediaBlock':
               return (
                 <MediaBlock
                   className={'col-span-3 col-start-1'}
                   imgClassName={'m-0'}
                   key={index}
+                  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                  // @ts-ignore
                   {...block}
                   captionClassName={'mx-auto max-w-[48rem]'}
                   enableGutter={false}

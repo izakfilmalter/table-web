@@ -51,7 +51,10 @@ const columnFields: Array<Field> = [
   link({
     overrides: {
       admin: {
-        condition: (_, { enableLink }) => Boolean(enableLink),
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        condition: (_, { enableLink }: { enableLink: boolean }) =>
+          Boolean(enableLink),
       },
     },
   }),

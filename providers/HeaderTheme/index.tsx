@@ -21,7 +21,7 @@ export const HeaderThemeProvider = ({
 }: {
   children: React.ReactNode
 }) => {
-  const [headerTheme, setThemeState] = useState<Theme | undefined>(
+  const [headerTheme, setThemeState] = useState<Theme | undefined | null>(
     canUseDOM
       ? (document.documentElement.getAttribute('data-theme') as Theme)
       : undefined,

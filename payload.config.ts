@@ -1,13 +1,16 @@
 import path from 'path'
 import { fileURLToPath } from 'url'
-import { Media } from '@/components/Media'
 import { env } from '@/env.mjs'
 import Categories from '@/shared/payload/collections/Categories'
+import { Media } from '@/shared/payload/collections/Media'
 import { Pages } from '@/shared/payload/collections/Pages'
 import { Posts } from '@/shared/payload/collections/Posts'
 import Users from '@/shared/payload/collections/Users'
 import BeforeDashboard from '@/shared/payload/components/BeforeDashboard'
 import BeforeLogin from '@/shared/payload/components/BeforeLogin'
+import { seed } from '@/shared/payload/endpoints/seed'
+import { Footer } from '@/shared/payload/globals/Footer/Footer'
+import { Header } from '@/shared/payload/globals/Header/Header'
 import { revalidateRedirects } from '@/shared/payload/hooks/revalidateRedirects'
 import { postgresAdapter } from '@payloadcms/db-postgres'
 import { payloadCloudPlugin } from '@payloadcms/plugin-cloud'
@@ -86,12 +89,14 @@ export default buildConfig({
   }),
   // database-adapter-config-start
   db: postgresAdapter({
-    url: env.DATABASE_URL,
+    pool: {
+      connectionString: env.DATABASE_URL,
+    },
   }),
   // database-adapter-config-end
   collections: [Pages, Posts, Media, Categories, Users],
-  cors: [process.env.PAYLOAD_PUBLIC_SERVER_URL || ''].filter(Boolean),
-  csrf: [process.env.PAYLOAD_PUBLIC_SERVER_URL || ''].filter(Boolean),
+  cors: [env.NEXT_PUBLIC_PAYLOAD_URL || ''].filter(Boolean),
+  csrf: [env.NEXT_PUBLIC_PAYLOAD_URL || ''].filter(Boolean),
   endpoints: [
     // The seed endpoint is used to populate the database with some example data
     // You should delete this endpoint before deploying your site to production
@@ -106,7 +111,8 @@ export default buildConfig({
     redirectsPlugin({
       collections: ['pages', 'posts'],
       overrides: {
-        // @ts-expect-error
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
         fields: ({ defaultFields }) =>
           defaultFields.map((field) => {
             if ('name' in field && field.name === 'from') {
@@ -159,7 +165,7 @@ export default buildConfig({
     }),
     payloadCloudPlugin(), // storage-adapter-placeholder
   ],
-  secret: process.env.PAYLOAD_SECRET,
+  secret: env.PAYLOAD_SECRET,
   sharp,
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),

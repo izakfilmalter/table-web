@@ -7,7 +7,10 @@ export const Media: React.FC<Props> = (props) => {
   const { className, htmlElement = 'div', resource } = props
 
   const isVideo =
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     typeof resource === 'object' && resource.mimeType?.includes('video')
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment,@typescript-eslint/no-explicit-any
   const Tag = (htmlElement as any) || Fragment
 
   return (

@@ -43,7 +43,7 @@ export const HighImpactHero: React.FC<Page['hero']> = ({
       </div>
       <div className={'min-h-[80vh] select-none'}>
         {typeof media === 'object' && (
-          <React.Fragment>
+          <>
             <Media
               fill
               imgClassName={'-z-10 object-cover'}
@@ -55,7 +55,7 @@ export const HighImpactHero: React.FC<Page['hero']> = ({
                 'pointer-events-none absolute bottom-0 left-0 h-1/2 w-full bg-gradient-to-t from-black to-transparent'
               }
             />
-          </React.Fragment>
+          </>
         )}
       </div>
     </div>
