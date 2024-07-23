@@ -23,7 +23,6 @@ export const home: RequiredDataFromCollectionSlug<'pages'> = {
         },
       },
     ],
-    // @ts-ignore
     media: '{{IMAGE_1}}',
     richText: {
       root: {
@@ -502,7 +501,6 @@ export const home: RequiredDataFromCollectionSlug<'pages'> = {
     {
       blockName: 'Media Block',
       blockType: 'mediaBlock',
-      // @ts-ignore
       media: '{{IMAGE_2}}',
       position: 'default',
     },

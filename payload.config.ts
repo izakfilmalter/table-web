@@ -39,8 +39,8 @@ const generateTitle: GenerateTitle<Post | Page> = ({ doc }) =>
 
 const generateURL: GenerateURL<Post | Page> = ({ doc }) =>
   doc.slug
-    ? `${process.env.NEXT_PUBLIC_SERVER_URL}/${doc.slug}`
-    : process.env.NEXT_PUBLIC_SERVER_URL
+    ? `${env.NEXT_PUBLIC_PAYLOAD_URL}/${doc.slug}`
+    : env.NEXT_PUBLIC_PAYLOAD_URL
 
 export default buildConfig({
   admin: {

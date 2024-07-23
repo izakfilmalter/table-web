@@ -1,3 +1,13 @@
+import { env } from '@/env.mjs'
+import { authenticated } from '@/shared/payload/access/authenticated'
+import { authenticatedOrPublished } from '@/shared/payload/access/authenticatedOrPublished'
+import { Banner } from '@/shared/payload/blocks/Banner'
+import { Code } from '@/shared/payload/blocks/Code'
+import { MediaBlock } from '@/shared/payload/blocks/MediaBlock'
+import { populateAuthors } from '@/shared/payload/collections/Posts/hooks/populateAuthors'
+import { revalidatePost } from '@/shared/payload/collections/Posts/hooks/revalidatePost'
+import { slugField } from '@/shared/payload/fields/slug'
+import { generatePreviewPath } from '@/shared/payload/utilities/generatePreviewPath'
 import {
   MetaDescriptionField,
   MetaImageField,
@@ -15,16 +25,6 @@ import {
 } from '@payloadcms/richtext-lexical'
 import type { CollectionConfig } from 'payload'
 
-import { authenticated } from '../../access/authenticated'
-import { authenticatedOrPublished } from '../../access/authenticatedOrPublished'
-import { Banner } from '../../blocks/Banner'
-import { Code } from '../../blocks/Code'
-import { MediaBlock } from '../../blocks/MediaBlock'
-import { slugField } from '../../fields/slug'
-import { generatePreviewPath } from '../../utilities/generatePreviewPath'
-import { populateAuthors } from './hooks/populateAuthors'
-import { revalidatePost } from './hooks/revalidatePost'
-
 export const Posts: CollectionConfig = {
   slug: 'posts',
   access: {
@@ -40,7 +40,7 @@ export const Posts: CollectionConfig = {
         const path = generatePreviewPath({
           path: `/posts/${typeof data.slug === 'string' ? data.slug : ''}`,
         })
-        return `${process.env.NEXT_PUBLIC_SERVER_URL}${path}`
+        return `${env.NEXT_PUBLIC_PAYLOAD_URL}${path}`
       },
     },
     preview: (doc) =>

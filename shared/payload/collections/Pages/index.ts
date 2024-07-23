@@ -1,3 +1,16 @@
+import { env } from '@/env.mjs'
+import { authenticated } from '@/shared/payload/access/authenticated'
+import { authenticatedOrPublished } from '@/shared/payload/access/authenticatedOrPublished'
+import { Archive } from '@/shared/payload/blocks/ArchiveBlock'
+import { CallToAction } from '@/shared/payload/blocks/CallToAction'
+import { Content } from '@/shared/payload/blocks/Content'
+import { FormBlock } from '@/shared/payload/blocks/Form'
+import { MediaBlock } from '@/shared/payload/blocks/MediaBlock'
+import { revalidatePage } from '@/shared/payload/collections/Pages/hooks/revalidatePage'
+import { hero } from '@/shared/payload/fields/hero'
+import { slugField } from '@/shared/payload/fields/slug'
+import { populatePublishedAt } from '@/shared/payload/hooks/populatePublishedAt'
+import { generatePreviewPath } from '@/shared/payload/utilities/generatePreviewPath'
 import {
   MetaDescriptionField,
   MetaImageField,
@@ -6,19 +19,6 @@ import {
   PreviewField,
 } from '@payloadcms/plugin-seo/fields'
 import type { CollectionConfig } from 'payload'
-
-import { authenticated } from '../../access/authenticated'
-import { authenticatedOrPublished } from '../../access/authenticatedOrPublished'
-import { Archive } from '../../blocks/ArchiveBlock'
-import { CallToAction } from '../../blocks/CallToAction'
-import { Content } from '../../blocks/Content'
-import { FormBlock } from '../../blocks/Form'
-import { MediaBlock } from '../../blocks/MediaBlock'
-import { hero } from '../../fields/hero'
-import { slugField } from '../../fields/slug'
-import { populatePublishedAt } from '../../hooks/populatePublishedAt'
-import { generatePreviewPath } from '../../utilities/generatePreviewPath'
-import { revalidatePage } from './hooks/revalidatePage'
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
@@ -35,7 +35,7 @@ export const Pages: CollectionConfig = {
         const path = generatePreviewPath({
           path: `/${typeof data.slug === 'string' ? data.slug : ''}`,
         })
-        return `${process.env.NEXT_PUBLIC_SERVER_URL}${path}`
+        return `${env.NEXT_PUBLIC_PAYLOAD_URL}${path}`
       },
     },
     preview: (doc) =>

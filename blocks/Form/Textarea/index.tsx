@@ -1,4 +1,6 @@
 import React from 'react'
+import { Error } from '@/blocks/Form/Error'
+import { Width } from '@/blocks/Form/Width'
 import { Label } from '@/components/ui/label'
 import { Textarea as TextAreaComponent } from '@/components/ui/textarea'
 import type { TextField } from '@payloadcms/plugin-form-builder/types'
@@ -7,9 +9,6 @@ import type {
   FieldValues,
   UseFormRegister,
 } from 'react-hook-form'
-
-import { Error } from '../Error'
-import { Width } from '../Width'
 
 export const Textarea: React.FC<
   TextField & {

@@ -1,38 +1,35 @@
 import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
-
-import type { User } from '../../payload-types'
+import { env } from '@/env.mjs'
+import type { User } from 'payload-types'
 
 export const getMeUser = async (args?: {
   nullUserRedirect?: string
   validUserRedirect?: string
 }): Promise<{
-  token: string
+  token?: string
   user: User
 }> => {
-  const { nullUserRedirect, validUserRedirect } = args || {}
+  const { nullUserRedirect, validUserRedirect } = args ?? {}
   const cookieStore = cookies()
   const token = cookieStore.get('payload-token')?.value
 
-  const meUserReq = await fetch(
-    `${process.env.NEXT_PUBLIC_SERVER_URL}/api/users/me`,
-    {
-      headers: {
-        Authorization: `JWT ${token}`,
-      },
+  const meUserReq = await fetch(`${env.NEXT_PUBLIC_PAYLOAD_URL}/api/users/me`, {
+    headers: {
+      Authorization: `JWT ${token}`,
     },
-  )
+  })
 
-  const {
-    user,
-  }: {
+  const { user } = (await meUserReq.json()) as {
     user: User
-  } = await meUserReq.json()
+  }
 
+  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
   if (validUserRedirect && meUserReq.ok && user) {
     redirect(validUserRedirect)
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
   if (nullUserRedirect && (!meUserReq.ok || !user)) {
     redirect(nullUserRedirect)
   }

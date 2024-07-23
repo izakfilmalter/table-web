@@ -1,7 +1,8 @@
-import type { Page } from '../../payload-types'
+import type { Page } from 'payload-types'
 
 // Used for pre-seeded content so that the homepage is not empty
-// @ts-expect-error
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 export const homeStatic: Page = {
   slug: 'home',
   _status: 'published',

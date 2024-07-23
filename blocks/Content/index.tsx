@@ -1,9 +1,8 @@
 import React from 'react'
+import { CMSLink } from '@/components/Link'
+import RichText from '@/components/RichText'
 import { cn } from '@/utilities/cn'
-import RichText from 'src/app/components/RichText'
-
-import type { Page } from '../../../payload-types'
-import { CMSLink } from '../../components/Link'
+import type { Page } from 'payload-types'
 
 type Props = Extract<Page['layout'][0], { blockType: 'content' }>
 

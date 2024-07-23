@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
 
 /**
@@ -20,11 +21,14 @@ export default function deepMerge<T, R>(target: T, source: R): T {
     Object.keys(source).forEach((key) => {
       if (isObject(source[key])) {
         if (!(key in target)) {
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
           Object.assign(output, { [key]: source[key] })
         } else {
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
           output[key] = deepMerge(target[key], source[key])
         }
       } else {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         Object.assign(output, { [key]: source[key] })
       }
     })

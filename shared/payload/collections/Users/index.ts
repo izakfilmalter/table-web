@@ -1,6 +1,5 @@
+import { authenticated } from '@/shared/payload/access/authenticated'
 import type { CollectionConfig } from 'payload'
-
-import { authenticated } from '../../access/authenticated'
 
 const Users: CollectionConfig = {
   slug: 'users',

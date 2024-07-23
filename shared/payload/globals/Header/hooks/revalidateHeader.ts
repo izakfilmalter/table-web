@@ -9,5 +9,6 @@ export const revalidateHeader: GlobalAfterChangeHook = ({
 
   revalidateTag('global_header')
 
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-return
   return doc
 }

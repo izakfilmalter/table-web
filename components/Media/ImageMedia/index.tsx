@@ -3,10 +3,10 @@
 import React from 'react'
 import type { StaticImageData } from 'next/image'
 import NextImage from 'next/image'
+import cssVariables from '@/app/cssVariables'
+import type { Props as MediaProps } from '@/components/Media/types'
+import { env } from '@/env.mjs'
 import { cn } from '@/utilities/cn'
-
-import cssVariables from '../../../cssVariables'
-import type { Props as MediaProps } from '../types'
 
 const { breakpoints } = cssVariables
 
@@ -43,7 +43,7 @@ export const ImageMedia: React.FC<MediaProps> = (props) => {
     height = fullHeight
     alt = altFromResource
 
-    src = `${process.env.NEXT_PUBLIC_SERVER_URL}${url}`
+    src = `${env.NEXT_PUBLIC_PAYLOAD_URL}${url}`
   }
 
   // NOTE: this is used by the browser to determine which image to download at different screen sizes

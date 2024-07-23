@@ -1,12 +1,13 @@
 import type { Metadata } from 'next'
+import { env } from '@/env.mjs'
 
 const defaultOpenGraph: Metadata['openGraph'] = {
   type: 'website',
   description: 'An open-source website built with Payload and Next.js.',
   images: [
     {
-      url: process.env.NEXT_PUBLIC_SERVER_URL
-        ? `${process.env.NEXT_PUBLIC_SERVER_URL}/website-template-OG.webp`
+      url: env.NEXT_PUBLIC_PAYLOAD_URL
+        ? `${env.NEXT_PUBLIC_PAYLOAD_URL}/website-template-OG.webp`
         : '/website-template-OG.webp',
     },
   ],

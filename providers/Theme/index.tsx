@@ -7,8 +7,8 @@ import React, {
   useEffect,
   useState,
 } from 'react'
+import canUseDOM from '@/utilities/canUseDOM'
 
-import canUseDOM from '../../utilities/canUseDOM'
 import {
   defaultTheme,
   getImplicitPreference,

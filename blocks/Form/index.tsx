@@ -2,10 +2,11 @@
 
 import React, { useCallback, useState } from 'react'
 import { useRouter } from 'next/navigation'
+import RichText from '@/components/RichText'
+import { Button } from '@/componentsui/button'
+import { env } from '@/env.mjs'
 import type { Form as FormType } from '@payloadcms/plugin-form-builder/types'
 import { useForm } from 'react-hook-form'
-import RichText from 'src/app/components/RichText'
-import { Button } from 'src/app/components/ui/button'
 
 import { buildInitialFormState } from './buildInitialFormState'
 import { fields } from './fields'
@@ -79,7 +80,7 @@ export const FormBlock: React.FC<
 
         try {
           const req = await fetch(
-            `${process.env.NEXT_PUBLIC_SERVER_URL}/api/form-submissions`,
+            `${env.NEXT_PUBLIC_PAYLOAD_URL}/api/form-submissions`,
             {
               body: JSON.stringify({
                 form: formID,

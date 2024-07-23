@@ -1,13 +1,13 @@
-import React from 'react'
+import type { FC } from 'react'
+import type { ArchiveBlockProps } from '@/blocks/ArchiveBlock/types'
+import { CollectionArchive } from '@/components/CollectionArchive'
+import RichText from '@/components/RichText'
 import configPromise from '@payload-config'
 import { getPayloadHMR } from '@payloadcms/next/utilities'
+import { Array, Boolean, Option, pipe } from 'effect'
 import type { Post } from 'payload-types'
-import RichText from 'src/app/components/RichText'
 
-import { CollectionArchive } from '../../components/CollectionArchive'
-import type { ArchiveBlockProps } from './types'
-
-export const ArchiveBlock: React.FC<
+export const ArchiveBlock: FC<
   ArchiveBlockProps & {
     id?: string
   }
@@ -26,7 +26,7 @@ export const ArchiveBlock: React.FC<
   if (populateBy === 'collection') {
     const payload = await getPayloadHMR({ config: configPromise })
 
-    const flattenedCategories = categories.map((category) => {
+    const flattenedCategories = (categories ?? []).map((category) => {
       if (typeof category === 'object') return category.id
       else return category
     })
@@ -34,8 +34,8 @@ export const ArchiveBlock: React.FC<
     const fetchedPosts = await payload.find({
       collection: 'posts',
       depth: 1,
-      limit,
-      ...(flattenedCategories && flattenedCategories.length > 0
+      limit: limit ?? 1,
+      ...(flattenedCategories.length > 0
         ? {
             where: {
               categories: {
@@ -48,9 +48,20 @@ export const ArchiveBlock: React.FC<
 
     posts = fetchedPosts.docs
   } else {
-    posts = selectedDocs.map((post) => {
-      if (typeof post.value === 'object') return post.value
-    })
+    posts = pipe(
+      selectedDocs,
+      Option.fromNullable,
+      Option.getOrElse((): NonNullable<typeof selectedDocs> => []),
+      Array.filterMap((x) =>
+        pipe(
+          typeof x.value === 'object',
+          Boolean.match({
+            onFalse: Option.none,
+            onTrue: () => Option.some(x.value as Post),
+          }),
+        ),
+      ),
+    )
   }
 
   return (

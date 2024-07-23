@@ -2,11 +2,10 @@
 
 import React, { Fragment } from 'react'
 import Link from 'next/link'
+import { Media } from '@/components/Media'
 import { cn } from '@/utilities/cn'
 import useClickableCard from '@/utilities/useClickableCard'
-
-import type { Post } from '../../../payload-types'
-import { Media } from '../Media'
+import type { Post } from 'payload-types'
 
 export const Card: React.FC<{
   alignItems?: 'center'

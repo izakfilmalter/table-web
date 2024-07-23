@@ -1,3 +1,4 @@
+import { linkGroup } from '@/shared/payload/fields/linkGroup'
 import {
   FixedToolbarFeature,
   HeadingFeature,
@@ -5,8 +6,6 @@ import {
   lexicalEditor,
 } from '@payloadcms/richtext-lexical'
 import type { Block } from 'payload'
-
-import { linkGroup } from '../../fields/linkGroup'
 
 export const CallToAction: Block = {
   slug: 'cta',

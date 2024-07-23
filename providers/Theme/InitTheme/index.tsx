@@ -1,7 +1,6 @@
 import React from 'react'
 import Script from 'next/script'
-
-import { defaultTheme, themeLocalStorageKey } from '../ThemeSelector/types'
+import { defaultTheme, themeLocalStorageKey } from '@/providers/Theme/shared'
 
 export const InitTheme: React.FC = () => (
   <Script

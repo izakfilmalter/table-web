@@ -1,4 +1,6 @@
 import React from 'react'
+import { Error } from '@/blocks/Form/Error'
+import { Width } from '@/blocks/Form/Width'
 import { Label } from '@/components/ui/label'
 import {
   Select as SelectComponent,
@@ -10,9 +12,6 @@ import {
 import type { SelectField } from '@payloadcms/plugin-form-builder/types'
 import type { Control, FieldErrorsImpl, FieldValues } from 'react-hook-form'
 import { Controller } from 'react-hook-form'
-
-import { Error } from '../Error'
-import { Width } from '../Width'
 
 export const Select: React.FC<
   SelectField & {

@@ -6,10 +6,10 @@ import { useRouter } from 'next/navigation'
 
 type UseClickableCardType<T extends HTMLElement> = {
   card: {
-    ref: RefObject<T>
+    ref: RefObject<T | null>
   }
   link: {
-    ref: RefObject<HTMLAnchorElement>
+    ref: RefObject<HTMLAnchorElement | null>
   }
 }
 
@@ -49,6 +49,7 @@ function useClickableCard<T extends HTMLElement>({
         }
       }
     },
+    // eslint-disable-next-line react-compiler/react-compiler
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [router, card, link, timeDown],
   )
@@ -75,6 +76,7 @@ function useClickableCard<T extends HTMLElement>({
         }
       }
     },
+    // eslint-disable-next-line react-compiler/react-compiler
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [router, card, link, timeDown],
   )
@@ -89,12 +91,11 @@ function useClickableCard<T extends HTMLElement>({
 
     return () => {
       if (cardNode) {
-        if (cardNode) {
-          cardNode.removeEventListener('mousedown', handleMouseDown)
-          cardNode.removeEventListener('mouseup', handleMouseUp)
-        }
+        cardNode.removeEventListener('mousedown', handleMouseDown)
+        cardNode.removeEventListener('mouseup', handleMouseUp)
       }
     }
+    // eslint-disable-next-line react-compiler/react-compiler
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [card, link, router])
 

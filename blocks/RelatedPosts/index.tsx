@@ -1,9 +1,8 @@
 import React from 'react'
+import { Card } from '@/components/Card'
+import RichText from '@/components/RichText'
 import clsx from 'clsx'
-import RichText from 'src/app/components/RichText'
-
-import type { Post } from '../../../payload-types'
-import { Card } from '../../components/Card'
+import type { Post } from 'payload-types'
 
 export type RelatedPostsProps = {
   className?: string

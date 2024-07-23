@@ -1,9 +1,9 @@
 'use client'
 
 import React, { useEffect, useRef } from 'react'
+import type { Props as MediaProps } from '@/components/Media/types'
+import { env } from '@/env.mjs'
 import { cn } from '@/utilities/cn'
-
-import type { Props as MediaProps } from '../types'
 
 export const VideoMedia: React.FC<MediaProps> = (props) => {
   const { onClick, resource, videoClassName } = props
@@ -35,9 +35,7 @@ export const VideoMedia: React.FC<MediaProps> = (props) => {
         playsInline
         ref={videoRef}
       >
-        <source
-          src={`${process.env.NEXT_PUBLIC_SERVER_URL}/media/${filename}`}
-        />
+        <source src={`${env.NEXT_PUBLIC_PAYLOAD_URL}/media/${filename}`} />
       </video>
     )
   }

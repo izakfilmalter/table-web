@@ -1,9 +1,10 @@
 'use client'
 
-import React, { Fragment, useCallback, useState } from 'react'
+import type { FC, MouseEventHandler } from 'react'
+import { Fragment, useCallback, useState } from 'react'
 import { toast } from '@payloadcms/ui'
 
-const SuccessMessage: React.FC = () => (
+const SuccessMessage: FC = () => (
   <div>
     Database seeded! You can now{' '}
     <a target={'_blank'} href={'/'}>
@@ -12,12 +13,12 @@ const SuccessMessage: React.FC = () => (
   </div>
 )
 
-export const SeedButton: React.FC = () => {
+export const SeedButton: FC = () => {
   const [loading, setLoading] = useState(false)
   const [seeded, setSeeded] = useState(false)
   const [error, setError] = useState(null)
 
-  const handleClick = useCallback(
+  const handleClick = useCallback<MouseEventHandler<HTMLAnchorElement>>(
     async (e) => {
       e.preventDefault()
       if (loading || seeded) return
@@ -29,6 +30,8 @@ export const SeedButton: React.FC = () => {
         setSeeded(true)
         toast.success(<SuccessMessage />, { duration: 5000 })
       } catch (err) {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
         setError(err)
       }
     },
@@ -38,6 +41,7 @@ export const SeedButton: React.FC = () => {
   let message = ''
   if (loading) message = ' (seeding...)'
   if (seeded) message = ' (done!)'
+  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition,@typescript-eslint/restrict-template-expressions
   if (error) message = ` (error: ${error})`
 
   return (

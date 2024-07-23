@@ -1,13 +1,11 @@
 import React, { Fragment } from 'react'
-import { cn } from '@/utilities/cn'
-
-import type { Page } from '../../../payload-types'
-import { ArchiveBlock } from '../../blocks/ArchiveBlock'
-import { CallToActionBlock } from '../../blocks/CallToAction'
-import { ContentBlock } from '../../blocks/Content'
-import { FormBlock } from '../../blocks/Form'
-import { MediaBlock } from '../../blocks/MediaBlock'
-import { toKebabCase } from '../../utilities/toKebabCase'
+import { ArchiveBlock } from '@/blocks/ArchiveBlock'
+import { CallToActionBlock } from '@/blocks/CallToAction'
+import { ContentBlock } from '@/blocks/Content'
+import { FormBlock } from '@/blocks/Form'
+import { MediaBlock } from '@/blocks/MediaBlock'
+import { toKebabCase } from '@/utilities/toKebabCase'
+import type { Page } from 'payload-types'
 
 const blockComponents = {
   archive: ArchiveBlock,

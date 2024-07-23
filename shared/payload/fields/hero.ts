@@ -60,6 +60,7 @@ export const hero: Field = {
       type: 'upload',
       admin: {
         condition: (_, { type } = {}) =>
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
           ['highImpact', 'mediumImpact'].includes(type),
       },
       relationTo: 'media',

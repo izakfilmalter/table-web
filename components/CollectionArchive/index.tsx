@@ -1,8 +1,7 @@
 import React from 'react'
+import { Card } from '@/components/Card'
 import { cn } from '@/utilities/cn'
-
-import type { Post } from '../../../payload-types'
-import { Card } from '../Card'
+import type { Post } from 'payload-types'
 
 export type Props = {
   posts: Array<Post>

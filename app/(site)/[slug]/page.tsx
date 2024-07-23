@@ -1,15 +1,14 @@
 import React, { cache } from 'react'
 import type { Metadata } from 'next'
-import { draftMode, headers } from 'next/headers'
+import { draftMode } from 'next/headers'
+import { Blocks } from '@/components/Blocks'
+import { Hero } from '@/components/Hero'
 import { PayloadRedirects } from '@/components/PayloadRedirects'
+import { homeStatic } from '@/shared/payload/seed/home-static'
+import { generateMeta } from '@/utilities/generateMeta'
 import configPromise from '@payload-config'
 import { getPayloadHMR } from '@payloadcms/next/utilities'
-import { homeStatic } from 'src/payload/seed/home-static'
-
-import type { Page as PageType } from '../../../payload-types'
-import { Blocks } from '../../components/Blocks'
-import { Hero } from '../../components/Hero'
-import { generateMeta } from '../../utilities/generateMeta'
+import type { Page as PageType } from 'payload-types'
 
 export async function generateStaticParams() {
   const payload = await getPayloadHMR({ config: configPromise })
@@ -37,6 +36,7 @@ export default async function Page({ params: { slug = 'home' } }) {
     page = homeStatic
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
   if (!page) {
     return <PayloadRedirects url={url} />
   }
@@ -61,6 +61,8 @@ export async function generateMetadata({
     slug,
   })
 
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   return generateMeta({ doc: page })
 }
 
@@ -81,5 +83,5 @@ const queryPageBySlug = cache(async ({ slug }: { slug: string }) => {
     },
   })
 
-  return result.docs[0] || null
+  return result.docs[0] ?? null
 })

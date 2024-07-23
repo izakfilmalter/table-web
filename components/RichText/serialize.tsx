@@ -1,23 +1,17 @@
-import {BannerBlock} from '@/app/blocks/Banner'
-import {CallToActionBlock} from '@/app/blocks/CallToAction'
-import {MediaBlock} from '@/app/blocks/MediaBlock'
-import {BannerBlock} from '@/blocks/Banner'
-import {CallToActionBlock} from '@/blocks/CallToAction'
-import type { CodeBlockProps} from '@/blocks/Code';
-import {CodeBlock} from '@/blocks/Code'
-import {CodeBlock} from '@/blocks/Code'
-import {MediaBlock} from '@/blocks/MediaBlock'
-import {CMSLink} from '@/components/Link'
+import type { JSX } from 'react'
+import React, { Fragment } from 'react'
+import { BannerBlock } from '@/blocks/Banner'
+import { CallToActionBlock } from '@/blocks/CallToAction'
+import type { CodeBlockProps } from '@/blocks/Code'
+import { CodeBlock } from '@/blocks/Code'
+import { MediaBlock } from '@/blocks/MediaBlock'
+import { CMSLink } from '@/components/Link'
 import type {
   DefaultNodeTypes,
   SerializedBlockNode,
 } from '@payloadcms/richtext-lexical'
-import type {BannerBlock as BannerBlockProps} from 'payload-types'
-import type {JSX} from 'react'
-import React, {Fragment} from 'react'
-import {CMSLink} from 'src/app/components/Link'
+import type { BannerBlock as BannerBlockProps, Page } from 'payload-types'
 
-import type {Page} from '../../../payload-types'
 import {
   IS_BOLD,
   IS_CODE,
@@ -31,8 +25,9 @@ import {
 export type NodeTypes =
   | DefaultNodeTypes
   | SerializedBlockNode<
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       | Extract<Page['layout'][0], { blockType: 'cta' }>
-       
       | BannerBlockProps
       | CodeBlockProps
     >
@@ -45,6 +40,7 @@ export function serializeLexical({ nodes }: Props): JSX.Element {
   return (
     <Fragment>
       {nodes.map((node, index): JSX.Element | null => {
+        // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
         if (node == null) {
           return null
         }
@@ -87,12 +83,14 @@ export function serializeLexical({ nodes }: Props): JSX.Element {
         // NOTE: Hacky fix for
         // https://github.com/facebook/lexical/blob/d10c4e6e55261b2fdd7d1845aed46151d0f06a8c/packages/lexical-list/src/LexicalListItemNode.ts#L133
         // which does not return checked: false (only true - i.e. there is no prop for false)
-        const serializedChildrenFn = (node: NodeTypes): JSX.Element | null => {
-          if (node.children == null) {
+        const serializedChildrenFn = (
+          childNode: NodeTypes,
+        ): JSX.Element | null => {
+          if (childNode.children == null) {
             return null
           } else {
-            if (node.type === 'list' && node.listType === 'check') {
-              for (const item of node.children) {
+            if (childNode.type === 'list' && childNode.listType === 'check') {
+              for (const item of childNode.children) {
                 if ('checked' in item) {
                   if (!item.checked) {
                     item.checked = false
@@ -101,7 +99,7 @@ export function serializeLexical({ nodes }: Props): JSX.Element {
               }
             }
             return serializeLexical({
-              nodes: node.children as Array<NodeTypes>,
+              nodes: childNode.children as Array<NodeTypes>,
             })
           }
         }
@@ -112,8 +110,9 @@ export function serializeLexical({ nodes }: Props): JSX.Element {
         if (node.type === 'block') {
           const block = node.fields
 
-          const blockType = block?.blockType
+          const blockType = block.blockType
 
+          // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
           if (!block || !blockType) {
             return null
           }
@@ -182,7 +181,6 @@ export function serializeLexical({ nodes }: Props): JSX.Element {
                     aria-checked={node.checked ? 'true' : 'false'}
                     className={` ${node.checked ? '' : ''}`}
                     key={index}
-                    // eslint-disable-next-line jsx-a11y/no-noninteractive-element-to-interactive-role
                     role={'checkbox'}
                     tabIndex={-1}
                     value={node.value}
@@ -212,6 +210,7 @@ export function serializeLexical({ nodes }: Props): JSX.Element {
                 <CMSLink
                   key={index}
                   newTab={Boolean(fields.newTab)}
+                  // eslint-disable-next-line @typescript-eslint/no-explicit-any,@typescript-eslint/no-unsafe-assignment
                   reference={fields.doc as any}
                   type={fields.linkType === 'internal' ? 'reference' : 'custom'}
                   url={fields.url}

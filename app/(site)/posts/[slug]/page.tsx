@@ -1,15 +1,15 @@
 import React, { cache } from 'react'
 import type { Metadata } from 'next'
-import { draftMode, headers } from 'next/headers'
+import { draftMode } from 'next/headers'
 import { RelatedPosts } from '@/blocks/RelatedPosts'
 import { PayloadRedirects } from '@/components/PayloadRedirects'
+import RichText from '@/components/RichText'
+import { PostHero } from '@/heros/PostHero'
+import { generateMeta } from '@/utilities/generateMeta'
 import configPromise from '@payload-config'
 import { getPayloadHMR } from '@payloadcms/next/utilities'
-import RichText from 'src/app/components/RichText'
+import { Option, pipe } from 'effect'
 
-import type { Post } from '../../../../payload-types'
-import { PostHero } from '../../../heros/PostHero'
-import { generateMeta } from '../../../utilities/generateMeta'
 import PageClient from './page.client'
 
 export async function generateStaticParams() {
@@ -56,7 +56,7 @@ export default async function Post({ params: { slug = '' } }) {
 
         <RelatedPosts
           className={'mt-12'}
-          docs={post.relatedPosts.filter((post) => typeof post === 'object')}
+          docs={(post.relatedPosts ?? []).filter((x) => typeof x === 'object')}
         />
       </div>
     </article>
@@ -65,10 +65,19 @@ export default async function Post({ params: { slug = '' } }) {
 
 export async function generateMetadata({
   params: { slug },
+}: {
+  params: { slug: string }
 }): Promise<Metadata> {
   const post = await queryPostBySlug({ slug })
 
-  return generateMeta({ doc: post })
+  return pipe(
+    post,
+    Option.fromNullable,
+    Option.match({
+      onNone: () => ({}),
+      onSome: (x) => generateMeta({ doc: x }),
+    }),
+  )
 }
 
 const queryPostBySlug = cache(async ({ slug }: { slug: string }) => {
@@ -88,5 +97,5 @@ const queryPostBySlug = cache(async ({ slug }: { slug: string }) => {
     },
   })
 
-  return result.docs[0] || null
+  return result.docs[0] ?? null
 })

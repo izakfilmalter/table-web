@@ -207,6 +207,7 @@ export const seed = async ({
   // This way we can sort them by `createdAt` or `publishedAt` and they will be in the expected order
   const post1Doc = await payload.create({
     collection: 'posts',
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     data: JSON.parse(
       JSON.stringify({ ...post1, categories: [technologyCategory.id] })
         .replace(/"\{\{IMAGE_1\}\}"/g, String(image1ID))
@@ -218,6 +219,7 @@ export const seed = async ({
 
   const post2Doc = await payload.create({
     collection: 'posts',
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     data: JSON.parse(
       JSON.stringify({ ...post2, categories: [newsCategory.id] })
         .replace(/"\{\{IMAGE_1\}\}"/g, String(image2ID))
@@ -229,6 +231,7 @@ export const seed = async ({
 
   const post3Doc = await payload.create({
     collection: 'posts',
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     data: JSON.parse(
       JSON.stringify({ ...post3, categories: [financeCategory.id] })
         .replace(/"\{\{IMAGE_1\}\}"/g, String(image3ID))
@@ -268,6 +271,7 @@ export const seed = async ({
 
   await payload.create({
     collection: 'pages',
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     data: JSON.parse(
       JSON.stringify(home)
         .replace(/"\{\{IMAGE_1\}\}"/g, String(imageHomeID))
@@ -280,6 +284,7 @@ export const seed = async ({
 
   const contactForm = await payload.create({
     collection: 'forms',
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     data: JSON.parse(JSON.stringify(contactFormData)),
     req,
   })
@@ -294,6 +299,7 @@ export const seed = async ({
 
   const contactPage = await payload.create({
     collection: 'pages',
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     data: JSON.parse(
       JSON.stringify(contactPageData).replace(
         /"\{\{CONTACT_FORM_ID\}\}"/g,

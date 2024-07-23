@@ -14,6 +14,7 @@ const formatSlug =
     }
 
     if (operation === 'create') {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment,@typescript-eslint/no-unsafe-member-access
       const fallbackData = data?.[fallback] || originalDoc?.[fallback]
 
       if (fallbackData && typeof fallbackData === 'string') {
@@ -21,6 +22,7 @@ const formatSlug =
       }
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return value
   }
 

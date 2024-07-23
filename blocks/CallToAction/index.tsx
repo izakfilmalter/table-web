@@ -1,12 +1,11 @@
-import React from 'react'
-import RichText from 'src/app/components/RichText'
-
-import type { Page } from '../../../payload-types'
-import { CMSLink } from '../../components/Link'
+import type { FC } from 'react'
+import { CMSLink } from '@/components/Link'
+import RichText from '@/components/RichText'
+import type { Page } from 'payload-types'
 
 type Props = Extract<Page['layout'][0], { blockType: 'cta' }>
 
-export const CallToActionBlock: React.FC<
+export const CallToActionBlock: FC<
   Props & {
     id?: string
   }

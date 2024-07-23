@@ -1,4 +1,4 @@
-import type { Page } from '../../payload-types'
+import type { Page } from 'payload-types'
 
 export const contact: Partial<Page> = {
   slug: 'contact',
@@ -10,7 +10,6 @@ export const contact: Partial<Page> = {
     {
       blockType: 'formBlock',
       enableIntro: true,
-      // @ts-ignore
       form: '{{CONTACT_FORM_ID}}',
       introContent: {
         root: {

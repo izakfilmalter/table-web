@@ -1,4 +1,7 @@
 import React from 'react'
+import { Error } from '@/blocks/Form/Error'
+import { stateOptions } from '@/blocks/Form/State/options'
+import { Width } from '@/blocks/Form/Width'
 import { Label } from '@/components/ui/label'
 import {
   Select,
@@ -10,10 +13,6 @@ import {
 import type { StateField } from '@payloadcms/plugin-form-builder/types'
 import type { Control, FieldErrorsImpl, FieldValues } from 'react-hook-form'
 import { Controller } from 'react-hook-form'
-
-import { Error } from '../Error'
-import { Width } from '../Width'
-import { stateOptions } from './options'
 
 export const State: React.FC<
   StateField & {
