@@ -1,3 +1,4 @@
+import { linkGroup } from '@/shared/payload/fields/linkGroup'
 import {
   FixedToolbarFeature,
   HeadingFeature,
@@ -5,8 +6,6 @@ import {
   lexicalEditor,
 } from '@payloadcms/richtext-lexical'
 import type { Field } from 'payload'
-
-import { linkGroup } from './linkGroup'
 
 export const hero: Field = {
   name: 'hero',

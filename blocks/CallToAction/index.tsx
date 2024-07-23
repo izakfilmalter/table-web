@@ -20,7 +20,7 @@ export const CallToActionBlock: FC<
         <RichText className={''} content={richText} enableGutter={false} />
       </div>
       <div className={'flex flex-col gap-8'}>
-        {(links || []).map(({ link }, i) => (
+        {(links ?? []).map(({ link }, i) => (
           <CMSLink key={i} size={'lg'} {...link} />
         ))}
       </div>

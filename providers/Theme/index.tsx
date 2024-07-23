@@ -7,13 +7,13 @@ import React, {
   useEffect,
   useState,
 } from 'react'
-import canUseDOM from '@/utilities/canUseDOM'
-
 import {
   defaultTheme,
   getImplicitPreference,
   themeLocalStorageKey,
-} from './shared'
+} from '@/providers/Theme/shared'
+import canUseDOM from '@/utilities/canUseDOM'
+
 import type { Theme, ThemeContextType } from './types'
 import { themeIsValid } from './types'
 

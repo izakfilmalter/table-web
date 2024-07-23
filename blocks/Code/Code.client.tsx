@@ -9,7 +9,11 @@ type Props = {
 }
 
 export const Code: React.FC<Props> = ({ code, language }) => (
-  <Highlight code={code} language={language} theme={themes.vsDark}>
+  <Highlight
+    code={code}
+    language={language ?? 'typescript'}
+    theme={themes.vsDark}
+  >
     {({ getLineProps, getTokenProps, tokens }) => (
       <pre
         className={

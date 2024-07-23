@@ -1,4 +1,6 @@
 import React from 'react'
+import { countryOptions } from '@/blocks/Form/Country/options'
+import { Error } from '@/blocks/Form/Error'
 import { Width } from '@/blocks/Form/Width'
 import { Label } from '@/components/ui/label'
 import {
@@ -12,12 +14,10 @@ import type { CountryField } from '@payloadcms/plugin-form-builder/types'
 import type { Control, FieldErrorsImpl, FieldValues } from 'react-hook-form'
 import { Controller } from 'react-hook-form'
 
-import { countryOptions } from './options'
-
 export const Country: React.FC<
   CountryField & {
-    control: Control<FieldValues, any>
-    errors: Partial<FieldErrorsImpl<Record<string, any>>>
+    control: Control<FieldValues, unknown>
+    errors: Partial<FieldErrorsImpl<Record<string, unknown>>>
   }
 > = ({ name, control, errors, label, required, width }) => (
   <Width width={width}>
@@ -25,6 +25,7 @@ export const Country: React.FC<
       {label}
     </Label>
     <Controller
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       control={control}
       defaultValue={''}
       name={name}
@@ -51,6 +52,7 @@ export const Country: React.FC<
       }}
       rules={{ required }}
     />
+    {/* eslint-disable-next-line @typescript-eslint/no-unsafe-member-access */}
     {required && errors[name] && <Error />}
   </Width>
 )

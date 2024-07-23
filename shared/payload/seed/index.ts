@@ -1,21 +1,20 @@
 import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
+import { contactForm as contactFormData } from '@/shared/payload/seed/contact-form'
+import { contact as contactPageData } from '@/shared/payload/seed/contact-page'
+import { home } from '@/shared/payload/seed/home'
+import { image1 } from '@/shared/payload/seed/image-1'
+import { image2 } from '@/shared/payload/seed/image-2'
+import { post1 } from '@/shared/payload/seed/post-1'
+import { post2 } from '@/shared/payload/seed/post-2'
+import { post3 } from '@/shared/payload/seed/post-3'
 import type {
   CollectionSlug,
   GlobalSlug,
   Payload,
   PayloadRequest,
 } from 'payload'
-
-import { contactForm as contactFormData } from './contact-form'
-import { contact as contactPageData } from './contact-page'
-import { home } from './home'
-import { image1 } from './image-1'
-import { image2 } from './image-2'
-import { post1 } from './post-1'
-import { post2 } from './post-2'
-import { post3 } from './post-3'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)

@@ -6,12 +6,6 @@ import type { CodeBlockProps } from '@/blocks/Code'
 import { CodeBlock } from '@/blocks/Code'
 import { MediaBlock } from '@/blocks/MediaBlock'
 import { CMSLink } from '@/components/Link'
-import type {
-  DefaultNodeTypes,
-  SerializedBlockNode,
-} from '@payloadcms/richtext-lexical'
-import type { BannerBlock as BannerBlockProps, Page } from 'payload-types'
-
 import {
   IS_BOLD,
   IS_CODE,
@@ -20,7 +14,12 @@ import {
   IS_SUBSCRIPT,
   IS_SUPERSCRIPT,
   IS_UNDERLINE,
-} from './nodeFormat'
+} from '@/components/RichText/nodeFormat'
+import type {
+  DefaultNodeTypes,
+  SerializedBlockNode,
+} from '@payloadcms/richtext-lexical'
+import type { BannerBlock as BannerBlockProps, Page } from 'payload-types'
 
 export type NodeTypes =
   | DefaultNodeTypes

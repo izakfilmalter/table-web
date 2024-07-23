@@ -1,7 +1,6 @@
 import React from 'react'
+import { SeedButton } from '@/shared/payload/components/BeforeDashboard/SeedButton'
 import { Banner } from '@payloadcms/ui/elements/Banner'
-
-import { SeedButton } from './SeedButton'
 
 import './index.scss'
 

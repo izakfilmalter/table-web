@@ -15,12 +15,12 @@ import { cn } from '@/utilities/cn'
 
 export const Pagination: React.FC<{
   className?: string
-  page: number
+  page?: number
   totalPages: number
 }> = (props) => {
   const router = useRouter()
 
-  const { className, page, totalPages } = props
+  const { className, page = 0, totalPages } = props
   const hasNextPage = page < totalPages
   const hasPrevPage = page > 1
 

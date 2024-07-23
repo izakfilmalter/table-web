@@ -1,6 +1,7 @@
 import React, { cache } from 'react'
 import type { Metadata } from 'next'
 import { draftMode } from 'next/headers'
+import PageClient from '@/app/(site)/posts/[slug]/page.client'
 import { RelatedPosts } from '@/blocks/RelatedPosts'
 import { PayloadRedirects } from '@/components/PayloadRedirects'
 import RichText from '@/components/RichText'
@@ -9,8 +10,6 @@ import { generateMeta } from '@/utilities/generateMeta'
 import configPromise from '@payload-config'
 import { getPayloadHMR } from '@payloadcms/next/utilities'
 import { Option, pipe } from 'effect'
-
-import PageClient from './page.client'
 
 export async function generateStaticParams() {
   const payload = await getPayloadHMR({ config: configPromise })

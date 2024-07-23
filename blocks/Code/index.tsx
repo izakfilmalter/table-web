@@ -1,6 +1,5 @@
 import React from 'react'
-
-import { Code } from './Code.client'
+import { Code } from '@/blocks/Code/Code.client'
 
 export type CodeBlockProps = {
   code: string

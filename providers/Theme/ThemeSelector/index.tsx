@@ -8,9 +8,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
+import type { Theme } from '@/providers/Theme/ThemeSelector/types'
 
 import { useTheme } from '..'
-import type { Theme } from './types'
 import { themeLocalStorageKey } from './types'
 
 export const ThemeSelector: React.FC = () => {

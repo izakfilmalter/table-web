@@ -31,7 +31,7 @@ export const ContentBlock: React.FC<
             return (
               <div
                 className={cn(
-                  `col-span-4 lg:col-span-${colsSpanClasses[size]}`,
+                  `col-span-4 lg:col-span-${colsSpanClasses[size ?? 'full']}`,
                   {
                     'md:col-span-2': size !== 'full',
                   },

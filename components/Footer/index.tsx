@@ -8,7 +8,7 @@ import type { Footer } from 'payload-types'
 export async function Footer() {
   const footer: Footer = await getCachedGlobal('footer')()
 
-  const navItems = footer.navItems || []
+  const navItems = footer.navItems ?? []
 
   return (
     <footer

@@ -3,12 +3,11 @@
 import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { HeaderNav } from '@/components/Header/Nav'
 import { Logo } from '@/components/logo'
 import { useHeaderTheme } from '@/providers/HeaderTheme'
 import type { Theme } from '@/providers/Theme/types'
 import type { Header } from 'payload-types'
-
-import { HeaderNav } from './Nav'
 
 interface HeaderClientProps {
   header: Header
