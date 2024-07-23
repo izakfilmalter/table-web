@@ -26,6 +26,12 @@ const fontSans = localFont({
 export const metadata: Metadata = {
   title: 'Table Church',
   description: 'A church for the harvest.',
+  icons: {
+    icon: [
+      { url: '/favicon-32x32.png', sizes: '32x32' },
+      { url: '/favicon-16x16.png', sizes: '16x16' },
+    ],
+  },
 }
 
 export default function RootLayout({
