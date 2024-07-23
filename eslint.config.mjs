@@ -1,14 +1,12 @@
 /// <reference types="./eslintTypes.d.ts" />
 
 import eslint from '@eslint/js'
+import nextPlugin from '@next/eslint-plugin-next'
 import importPlugin from 'eslint-plugin-import'
-import tseslint from 'typescript-eslint'
-
 import reactPlugin from 'eslint-plugin-react'
 import reactCompilerPlugin from 'eslint-plugin-react-compiler'
 import hooksPlugin from 'eslint-plugin-react-hooks'
-import nextPlugin from '@next/eslint-plugin-next'
-
+import tseslint from 'typescript-eslint'
 
 /** @type {import('typescript-eslint').Config} */
 export default [
