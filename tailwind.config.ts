@@ -1,8 +1,10 @@
+import typography from '@tailwindcss/typography'
 import type { Config } from 'tailwindcss'
 import animate from 'tailwindcss-animate'
 
 const config = {
-  darkMode: ['class'],
+  // darkMode: ['class'],
+  darkMode: ['selector', '[data-theme="dark"]'],
   content: [
     './pages/**/*.{ts,tsx}',
     './components/**/*.{ts,tsx}',
@@ -10,6 +12,20 @@ const config = {
     './src/**/*.{ts,tsx}',
   ],
   prefix: '',
+  safelist: [
+    'lg:col-span-4',
+    'lg:col-span-6',
+    'lg:col-span-8',
+    'lg:col-span-12',
+    'border-border',
+    'bg-card',
+    'border-error',
+    'bg-error/30',
+    'border-success',
+    'bg-success/30',
+    'border-warning',
+    'bg-warning/30',
+  ],
   theme: {
     container: {
       center: true,
@@ -76,9 +92,22 @@ const config = {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
       },
+      typography: ({ theme }) => ({
+        DEFAULT: {
+          css: {
+            '--tw-prose-body': 'var(--text)',
+            '--tw-prose-headings': 'var(--text)',
+            h1: {
+              fontSize: '4rem',
+              fontWeight: 'normal',
+              marginBottom: '0.25em',
+            },
+          },
+        },
+      }),
     },
   },
-  plugins: [animate],
+  plugins: [animate, typography],
 } satisfies Config
 
 export default config
