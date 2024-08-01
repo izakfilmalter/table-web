@@ -114,7 +114,6 @@ export interface Vision {
     };
     [k: string]: unknown;
   } | null;
-  _status?: ('draft' | 'published') | null;
   updatedAt?: string | null;
   createdAt?: string | null;
 }

@@ -1,3 +1,4 @@
+import { RefreshRouteOnSave } from '@/components/refreshRouteOnSave'
 import { cn } from '@/lib/utils'
 
 import './globals.css'
@@ -67,6 +68,8 @@ export default function RootLayout({
           fontSans.variable,
         )}
       >
+        <RefreshRouteOnSave />
+
         {/*<Navigation />*/}
 
         {children}

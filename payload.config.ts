@@ -1,4 +1,5 @@
 import { env } from '@/env.mjs'
+import { revalidateGlobal } from '@/shared/payload/revalidateGlobal'
 import { postgresAdapter } from '@payloadcms/db-postgres'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import { buildConfig } from 'payload'
@@ -17,10 +18,16 @@ export default buildConfig({
           type: 'richText',
         },
       ],
-      versions: {
-        drafts: {
-          autosave: true,
-        },
+      // versions: {
+      //   drafts: {
+      //     autosave: true,
+      //   },
+      // },
+      access: {
+        read: () => true,
+      },
+      hooks: {
+        afterChange: [revalidateGlobal('vision')],
       },
     },
   ],
