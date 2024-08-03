@@ -7,6 +7,7 @@ import type {
   ReactNode,
 } from 'react'
 import { useState } from 'react'
+import Image from 'next/image'
 import type { LinkProps } from 'next/link'
 import Link from 'next/link'
 import { Logo } from '@/components/logo'
@@ -63,7 +64,7 @@ export const Navigation: FC = () => {
     <header className={'fixed left-0 top-0 z-[60] w-full backdrop-blur-[12px]'}>
       <div
         className={
-          'mx-auto flex h-navigation-height max-w-[1200px] flex-row items-center px-[32px]'
+          'h-navigation-height mx-auto flex max-w-[1200px] flex-row items-center px-[32px]'
         }
       >
         <Logo className={'h-12 w-auto'} />
@@ -109,7 +110,7 @@ export const Navigation: FC = () => {
 
         <NavigationMenu className={'ml-auto mr-0 hidden md:flex'}>
           <NavigationMenuList>
-            <NavigationMenuItem className={'hidden'}>
+            <NavigationMenuItem value={'about-us'}>
               <NavigationMenuTrigger>About Us</NavigationMenuTrigger>
               <NavigationMenuContent>
                 <ul
@@ -121,17 +122,36 @@ export const Navigation: FC = () => {
                     <NavigationMenuLink asChild>
                       <a
                         className={
-                          'flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md'
+                          'rounded-4xl relative flex h-full w-full select-none flex-col justify-end overflow-hidden p-6 no-underline outline-none focus:shadow-md'
                         }
                         href={'/about-us/our-story'}
                       >
-                        <div className={'h-6 w-6'} />
-                        <div className={'mb-2 mt-4 text-lg font-medium'}>
+                        <Image
+                          src={'/family.webp'}
+                          alt={'Filmalter Family'}
+                          fill
+                          priority
+                          className={'z-0'}
+                          style={{
+                            objectFit: 'cover',
+                          }}
+                        />
+
+                        <div
+                          className={
+                            'absolute inset-0 z-0 bg-gradient-to-b from-muted/50 to-muted'
+                          }
+                        />
+
+                        <div className={'relative h-6 w-6'} />
+                        <div
+                          className={'relative mb-2 mt-4 text-lg font-medium'}
+                        >
                           Our Story
                         </div>
                         <p
                           className={
-                            'text-sm leading-tight text-muted-foreground'
+                            'relative text-sm leading-tight text-muted-foreground'
                           }
                         >
                           Hear the story of our pastors, how the Lord moved them
@@ -140,17 +160,17 @@ export const Navigation: FC = () => {
                       </a>
                     </NavigationMenuLink>
                   </li>
-                  <ListItem href={'/about-us/our-story'} title={'Our Story'}>
-                    Re-usable components built using Radix UI and Tailwind CSS.
+                  <ListItem href={'/about-us/who-we-are'} title={'Who We Are'}>
+                    Learn about the new move the Lord is birthing to see revival
+                    in the nations.
                   </ListItem>
-                  <ListItem href={'/about-us/our-values'} title={'Our Values'}>
-                    How to install dependencies and structure your app.
+                  <ListItem href={'/about-us/values'} title={'Values'}>
+                    We are driven by what we hold dear, our values found in the
+                    word.
                   </ListItem>
-                  <ListItem
-                    href={'/about-us/our-beliefs'}
-                    title={'Our Beliefs'}
-                  >
-                    Styles for headings, paragraphs, lists...etc
+                  <ListItem href={'/about-us/beliefs'} title={'Beliefs'}>
+                    The foundations of our faith, how we view God, Jesus, and
+                    the Holy Spirit.
                   </ListItem>
                 </ul>
               </NavigationMenuContent>
