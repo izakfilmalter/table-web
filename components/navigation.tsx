@@ -48,7 +48,7 @@ export const Navigation: FC = () => (
   <header className={'fixed left-0 top-0 z-[60] w-full backdrop-blur-[12px]'}>
     <div
       className={
-        'h-navigation-height mx-auto flex max-w-[1200px] flex-row items-center px-[32px]'
+        'mx-auto flex h-navigation-height max-w-[1200px] flex-row items-center px-[32px]'
       }
     >
       <Logo className={'h-12 w-auto'} />

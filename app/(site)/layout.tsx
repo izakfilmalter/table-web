@@ -167,7 +167,7 @@ export default function RootLayout({
       lang={'en'}
     >
       <head>
-        <script src={'https://js.churchcenter.com/modal/v1'}></script>
+        <script async src={'https://js.churchcenter.com/modal/v1'} />
       </head>
       <body
         className={cn(
@@ -184,7 +184,7 @@ export default function RootLayout({
           <ScrollArea>
             <div
               className={
-                'pt-navigation-height flex min-h-dvh w-dvw flex-col overflow-x-hidden'
+                'flex min-h-dvh w-dvw flex-col overflow-x-hidden pt-navigation-height'
               }
             >
               {children}
