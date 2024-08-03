@@ -1,4 +1,6 @@
+import { Navigation } from '@/components/navigation'
 import { RefreshRouteOnSave } from '@/components/refreshRouteOnSave'
+import { ScrollArea } from '@/components/ui/scroll-area'
 import { cn } from '@/lib/utils'
 
 import './globals.css'
@@ -44,6 +46,103 @@ const fontSans = localFont({
   variable: '--font-sans',
 })
 
+const fontSerif = localFont({
+  src: [
+    {
+      weight: '100',
+      path: './fonts/editorial-new.woff2',
+      style: 'normal',
+    },
+    {
+      weight: '100',
+      path: './fonts/editorial-new.woff2',
+      style: 'italic',
+    },
+    {
+      weight: '200',
+      path: './fonts/editorial-new.woff2',
+      style: 'normal',
+    },
+    {
+      weight: '200',
+      path: './fonts/editorial-new.woff2',
+      style: 'italic',
+    },
+    {
+      weight: '300',
+      path: './fonts/editorial-new.woff2',
+      style: 'normal',
+    },
+    {
+      weight: '300',
+      path: './fonts/editorial-new.woff2',
+      style: 'italic',
+    },
+    {
+      weight: '400',
+      path: './fonts/editorial-new.woff2',
+      style: 'normal',
+    },
+    {
+      weight: '400',
+      path: './fonts/editorial-new.woff2',
+      style: 'italic',
+    },
+    {
+      weight: '475',
+      path: './fonts/editorial-new.woff2',
+      style: 'normal',
+    },
+    {
+      weight: '475',
+      path: './fonts/editorial-new.woff2',
+      style: 'italic',
+    },
+    {
+      weight: '600',
+      path: './fonts/editorial-new.woff2',
+      style: 'normal',
+    },
+    {
+      weight: '600',
+      path: './fonts/editorial-new.woff2',
+      style: 'italic',
+    },
+    {
+      weight: '700',
+      path: './fonts/editorial-new.woff2',
+      style: 'normal',
+    },
+    {
+      weight: '700',
+      path: './fonts/editorial-new.woff2',
+      style: 'italic',
+    },
+    {
+      weight: '800',
+      path: './fonts/editorial-new.woff2',
+      style: 'normal',
+    },
+    {
+      weight: '800',
+      path: './fonts/editorial-new.woff2',
+      style: 'italic',
+    },
+    {
+      weight: '900',
+      path: './fonts/editorial-new.woff2',
+      style: 'normal',
+    },
+    {
+      weight: '900',
+      path: './fonts/editorial-new.woff2',
+      style: 'italic',
+    },
+  ],
+  display: 'swap',
+  variable: '--font-serif',
+})
+
 export const metadata: Metadata = {
   title: 'Table Church',
   description: 'A church for the harvest.',
@@ -61,18 +160,37 @@ export default function RootLayout({
   children: ReactNode
 }>) {
   return (
-    <html lang={'en'}>
+    <html
+      className={
+        'min-h-[max(calc(100%+env(safe-area-inset-top)),100dvh)] overflow-hidden overscroll-none'
+      }
+      lang={'en'}
+    >
+      <head>
+        <script async src={'https://js.churchcenter.com/modal/v1'} />
+      </head>
       <body
         className={cn(
-          'min-h-screen bg-background font-sans antialiased',
+          'flew-row flex h-dvh w-full overflow-hidden font-sans antialiased',
           fontSans.variable,
+          fontSerif.variable,
         )}
       >
         <RefreshRouteOnSave />
 
-        {/*<Navigation />*/}
+        <main className={'bg-page-gradient flex w-full flex-col'}>
+          <Navigation />
 
-        {children}
+          <ScrollArea>
+            <div
+              className={
+                'flex min-h-dvh w-dvw flex-col overflow-x-hidden pt-navigation-height'
+              }
+            >
+              {children}
+            </div>
+          </ScrollArea>
+        </main>
       </body>
     </html>
   )
