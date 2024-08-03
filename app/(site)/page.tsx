@@ -1,5 +1,4 @@
 import { RichText } from '@/components/richText/richText'
-import { Card } from '@/components/ui/card'
 import { cn } from '@/lib/utils'
 import type { Vision } from '@/payload-types'
 import { getCachedGlobal } from '@/shared/payload/getGlobals'
@@ -18,30 +17,16 @@ export default async function Home() {
         }
       >
         <div className={'m-auto flex h-full flex-col px-4 py-4'}>
-          <h1
+          <div
             className={
-              // 96px is total pixels between each side of the screen and the start
-              // of the text. This makes it so that the hero text is always edge to
-              // edge on mobile.
-              'animate-fade-in my-auto translate-y-[-10px] font-serif text-[min(calc((100vw-96px)/10),80px)] leading-[1.4] text-white opacity-0 delay-200 md:mb-0 md:leading-[1.7]'
+              'my-auto bg-gradient-to-b from-[hsla(227,56%,49%,30%)] to-[hsla(4,83%,24%,80%)] p-16 text-white backdrop-blur-[12px]'
             }
           >
-            <span
-              className={
-                'rounded-3xl bg-black box-decoration-clone px-4 pb-1.5 pt-4 md:px-8 md:pb-3.5 md:pt-8'
-              }
-            >
+            <h1 className={'font-serif text-7xl'}>
               Discipleship
               <br />
               At Scale
-            </span>
-          </h1>
-
-          <Card
-            className={
-              'delay-400 animate-fade-in translate-y-[-10px] items-start gap-4 !border-0 bg-white/70 p-4 opacity-0 backdrop-blur-[12px] md:mb-auto md:p-8'
-            }
-          >
+            </h1>
             <h2 className={cn(contentClassName, 'mt-0')}>
               Equip your team with an app for data driven discipleship.
               <br />
@@ -49,7 +34,7 @@ export default async function Home() {
                 Streamlining Next Steps, growing leaders, and more.
               </span>
             </h2>
-          </Card>
+          </div>
         </div>
       </div>
       <div
