@@ -15,17 +15,17 @@ export default async function Home() {
     <>
       <div
         className={
-          'relative m-4 flex h-[calc(100dvh-72px-32px)] max-h-[1024px] translate-y-[-10px] animate-fade-in flex-col overflow-hidden rounded-2xl bg-white bg-[url(/st-pete.webp)] bg-cover opacity-0 md:min-h-[658px]'
+          'animate-fade-in relative m-4 flex h-[calc(100dvh-72px-32px)] max-h-[1024px] translate-y-[-10px] flex-col overflow-hidden rounded-2xl bg-white bg-[url(/st-pete.webp)] bg-cover opacity-0 md:min-h-[658px]'
         }
       >
         <div
           className={
-            'm-auto flex h-full w-full max-w-[1200px] flex-col items-start md:px-[32px] md:py-4'
+            'm-auto flex h-full w-full max-w-[1200px] flex-col md:px-[32px] md:py-4'
           }
         >
           <div
             className={
-              'ml-0 mr-auto mt-auto flex w-full flex-col gap-6 bg-gradient-to-b from-[hsla(227,56%,49%,30%)] to-[hsla(4,83%,24%,80%)] p-4 text-white backdrop-blur-[12px] md:mb-auto md:w-auto md:p-16'
+              'ml-0 mr-auto mt-auto flex w-full flex-col items-start gap-6 bg-gradient-to-b from-[hsla(227,56%,49%,30%)] to-[hsla(4,83%,24%,80%)] p-4 text-white backdrop-blur-[12px] md:mb-auto md:w-auto md:p-16'
             }
           >
             <h1
