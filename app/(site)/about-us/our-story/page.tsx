@@ -63,11 +63,15 @@ const PastorText: FC<PastorTextProps> = (props) => {
   return (
     <div
       className={cn(
-        'relative mx-4 flex flex-col font-serif italic text-black md:bottom-[calc(-100%-32px)] md:mx-8',
+        'relative mx-4 flex flex-col md:bottom-[calc(-100%-32px)] md:mx-8',
         className,
       )}
     >
-      <h1 className={'text-6xl leading-tight md:text-8xl md:leading-tight'}>
+      <h1
+        className={
+          'font-serif text-6xl italic leading-tight text-black md:text-8xl md:leading-tight'
+        }
+      >
         Ps. Izak & Amy
         <br />
         Filmalter
