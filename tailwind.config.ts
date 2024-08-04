@@ -102,12 +102,7 @@ const config = {
       },
       fontFamily: {
         sans: ['var(--font-sans)'],
-        serif: [
-          'var(--font-serif)',
-          {
-            fontVariationSettings: '"wght" 300',
-          },
-        ],
+        serif: ['var(--font-serif)'],
       },
       colors: {
         border: 'hsl(var(--border))',
