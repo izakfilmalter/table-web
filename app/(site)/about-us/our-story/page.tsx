@@ -43,7 +43,7 @@ export default function OurStory() {
             <br />
             <br />
             With pain in our hearts, we left our church family, our home, our
-            friends. We parachuted in the fall of 2023. Knowing fee, filled with
+            friends. We parachuted in the fall of 2023. Knowing few, filled with
             hunger for the lost. We set out on our mission, to see St Pete
             saved, to see revival sweep the world.
           </div>
