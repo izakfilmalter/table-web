@@ -7,7 +7,7 @@ import { cn } from '@/lib/utils'
 export const CalendarCard: FC = () => (
   <div
     className={
-      'flex translate-y-[-10px] animate-fade-in flex-col gap-4 opacity-0 delay-200 md:flex-row'
+      'flex translate-y-[-10px] animate-fade-in flex-col gap-2 opacity-0 delay-200 md:flex-row'
     }
   >
     <Day day={'Sunday'} />
@@ -15,7 +15,9 @@ export const CalendarCard: FC = () => (
     <Day day={'Tuesday'}>
       <Event
         Name={'Prayer'}
-        Description={'A time for prayer for the harvest in St Pete.'}
+        Description={
+          'A time for prayer for the harvest in St Pete. Interceding fo the Lord to heal our land.'
+        }
         Time={'7:30 PM - 8:30 PM'}
         href={'https://table-church.churchcenter.com/people/forms/789394'}
         className={'bg-teal-200 hover:bg-teal-300 active:bg-teal-200'}
@@ -26,7 +28,7 @@ export const CalendarCard: FC = () => (
       <Event
         Name={'Service'}
         Description={
-          'A time for break bread, worshiping, sharing the word, growing in unity.'
+          'A time for breaking bread, worshiping, sharing the word, growing in unity.'
         }
         Time={'6:00 PM - 9:00 PM'}
         href={'https://table-church.churchcenter.com/people/forms/789395'}
