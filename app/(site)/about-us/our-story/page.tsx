@@ -9,15 +9,19 @@ export default function OurStory() {
         <div className={'flex flex-col md:flex-row'}>
           <div
             className={
-              'flex h-[600px] flex-col rounded-t-2xl bg-[url(/family.webp)] bg-cover bg-center md:flex-2 md:rounded-b-2xl'
+              'flex h-[600px] translate-y-[-10px] animate-fade-in flex-col rounded-t-2xl bg-[url(/family.webp)] bg-cover bg-center opacity-0 md:flex-2 md:rounded-b-2xl'
             }
           >
-            <PastorText className={'hidden md:flex'} />
+            <PastorText
+              className={
+                'hidden translate-y-[-10px] animate-fade-in opacity-0 delay-100 md:flex'
+              }
+            />
           </div>
           <div
             className={cn(
               cardGradientDark,
-              'p-8 text-2xl font-bold text-white md:-ml-40 md:mt-40 md:flex-1',
+              'translate-y-[-10px] animate-fade-in p-8 text-2xl font-bold text-white opacity-0 md:-ml-40 md:mt-40 md:flex-1 md:delay-300',
             )}
           >
             <PastorText className={'mx-0 mb-4 text-white md:hidden'} />
@@ -58,13 +62,15 @@ const PastorText: FC<PastorTextProps> = (props) => {
   return (
     <div
       className={cn(
-        'relative mx-4 flex flex-col font-serif italic text-black md:bottom-[calc(-100%-48px)] md:mx-8',
+        'relative mx-4 flex flex-col font-serif italic text-black md:bottom-[calc(-100%-32px)] md:mx-8',
         className,
       )}
     >
-      <h1 className={'text-6xl md:text-8xl'}>Ps. Izak & Amy</h1>
-      <span className={'mb-4 mt-2 text-4xl'}>Ada, Izak, & Emiko</span>
-      <h1 className={'text-6xl md:text-8xl'}>Filmalter</h1>
+      <h1 className={'text-6xl leading-tight md:text-8xl md:leading-tight'}>
+        Ps. Izak & Amy
+        <br />
+        Filmalter
+      </h1>
     </div>
   )
 }

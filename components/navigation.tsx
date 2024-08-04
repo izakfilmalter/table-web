@@ -90,6 +90,10 @@ export const Navigation: FC = () => {
                   Home
                 </MobileLink>
 
+                <MobileLink href={'/about-us/our-story'} onOpenChange={setOpen}>
+                  Our Story
+                </MobileLink>
+
                 <ExternalMobileLink
                   href={
                     'https://table-church.churchcenter.com/people/forms/789148'
@@ -112,14 +116,15 @@ export const Navigation: FC = () => {
           </SheetContent>
         </Sheet>
 
-        <NavigationMenu className={'ml-auto mr-0 hidden md:flex'}>
+        <NavigationMenu className={'mx-auto hidden md:flex'}>
           <NavigationMenuList>
             <NavigationMenuItem value={'about-us'}>
               <NavigationMenuTrigger>About Us</NavigationMenuTrigger>
               <NavigationMenuContent>
                 <ul
                   className={
-                    'grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]'
+                    // lg:grid-cols-[.75fr_1fr]
+                    'grid gap-3 p-6 md:w-[400px] lg:w-[500px]'
                   }
                 >
                   <li className={'row-span-3'}>
@@ -164,15 +169,27 @@ export const Navigation: FC = () => {
                       </a>
                     </NavigationMenuLink>
                   </li>
-                  <ListItem href={'/about-us/who-we-are'} title={'Who We Are'}>
+                  <ListItem
+                    href={'/about-us/who-we-are'}
+                    title={'Who We Are'}
+                    className={'hidden'}
+                  >
                     Learn about the new move the Lord is birthing to see revival
                     in the nations.
                   </ListItem>
-                  <ListItem href={'/about-us/values'} title={'Values'}>
+                  <ListItem
+                    href={'/about-us/values'}
+                    title={'Values'}
+                    className={'hidden'}
+                  >
                     We are driven by what we hold dear, our values found in the
                     word.
                   </ListItem>
-                  <ListItem href={'/about-us/beliefs'} title={'Beliefs'}>
+                  <ListItem
+                    href={'/about-us/beliefs'}
+                    title={'Beliefs'}
+                    className={'hidden'}
+                  >
                     The foundations of our faith, how we view God, Jesus, and
                     the Holy Spirit.
                   </ListItem>
@@ -235,25 +252,21 @@ const ListItem: FC<ComponentPropsWithRef<'a'>> = ({
   ref,
   ...props
 }) => (
-  <li>
-    <NavigationMenuLink asChild>
-      <a
-        ref={ref}
-        className={cn(
-          'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
-          className,
-        )}
-        {...props}
-      >
-        <div className={'text-sm font-medium leading-none'}>{title}</div>
-        <p
-          className={'line-clamp-2 text-sm leading-snug text-muted-foreground'}
-        >
-          {children}
-        </p>
-      </a>
-    </NavigationMenuLink>
-  </li>
+  <NavigationMenuLink asChild>
+    <a
+      ref={ref}
+      className={cn(
+        'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
+        className,
+      )}
+      {...props}
+    >
+      <div className={'text-sm font-medium leading-none'}>{title}</div>
+      <p className={'line-clamp-2 text-sm leading-snug text-muted-foreground'}>
+        {children}
+      </p>
+    </a>
+  </NavigationMenuLink>
 )
 
 type MobileLinkProps = LinkProps & {
