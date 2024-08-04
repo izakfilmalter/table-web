@@ -1,7 +1,7 @@
 import type { FC } from 'react'
 import { ArrowRightIcon } from 'lucide-react'
 
-import { cardGradient } from '@/components/container'
+import { buttonRightIcon, cardGradient } from '@/components/globalStyles'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 
@@ -42,13 +42,13 @@ export const HeroCard: FC = () => (
           Find a place to grow,
           <br />a place to pray, a place to thrive.
         </h2>
-        <Button variant={'secondary'} size={'lg'} asChild className={'gap-1'}>
+        <Button variant={'secondary'} size={'lg'} asChild>
           <a
             href={'https://table-church.churchcenter.com/people/forms/789148'}
             data-open-in-church-center-modal={'true'}
           >
             Get Connected
-            <ArrowRightIcon className={'-mr-2 ml-2'} />
+            <ArrowRightIcon className={buttonRightIcon} />
           </a>
         </Button>
       </div>

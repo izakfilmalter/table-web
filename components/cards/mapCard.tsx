@@ -14,7 +14,7 @@ export const MapCard: FC = () => (
 
     <h1
       className={
-        'relative mx-6 mb-2 mt-auto text-[min(calc((100vw-80px)/3.27),96px)] font-bold leading-none'
+        'relative mx-8 mb-4 mt-auto text-[min(calc((100vw-96px)/3.27),96px)] font-bold leading-none'
       }
     >
       <span className={'text-black/10'}>

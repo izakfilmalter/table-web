@@ -12,7 +12,7 @@ import type { LinkProps } from 'next/link'
 import Link from 'next/link'
 import { MenuIcon } from 'lucide-react'
 
-import { containerClassName } from '@/components/container'
+import { containerClassName } from '@/components/globalStyles'
 import { Logo } from '@/components/logo'
 import { Button } from '@/components/ui/button'
 import {

@@ -1,6 +1,6 @@
 import type { FC } from 'react'
 
-import { cardGradientDark, containerClassName } from '@/components/container'
+import { cardGradientDark, containerClassName } from '@/components/globalStyles'
 import { cn } from '@/lib/utils'
 
 export default function OurStory() {
