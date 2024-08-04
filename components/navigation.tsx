@@ -10,6 +10,7 @@ import { useState } from 'react'
 import Image from 'next/image'
 import type { LinkProps } from 'next/link'
 import Link from 'next/link'
+import { containerClassName } from '@/components/container'
 import { Logo } from '@/components/logo'
 import { Button } from '@/components/ui/button'
 import {
@@ -63,11 +64,14 @@ export const Navigation: FC = () => {
   return (
     <header className={'fixed left-0 top-0 z-[60] w-full backdrop-blur-[12px]'}>
       <div
-        className={
-          'h-navigation-height mx-auto flex max-w-[1200px] flex-row items-center px-[32px]'
-        }
+        className={cn(
+          containerClassName,
+          'h-navigation-height flex-row items-center',
+        )}
       >
-        <Logo className={'h-12 w-auto'} />
+        <Link href={'/'}>
+          <Logo className={'h-12 w-auto'} />
+        </Link>
 
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger asChild>

@@ -97,6 +97,9 @@ const config = {
       spacing: {
         'navigation-height': 'var(--navigation-height)',
       },
+      flex: {
+        '2': '2 2 0%',
+      },
       fontFamily: {
         sans: ['var(--font-sans)'],
         serif: [

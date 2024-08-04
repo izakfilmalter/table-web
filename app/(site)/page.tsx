@@ -1,3 +1,4 @@
+import { cardGradient } from '@/components/container'
 import { RichText } from '@/components/richText/richText'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
@@ -15,7 +16,7 @@ export default async function Home() {
     <>
       <div
         className={
-          'animate-fade-in relative m-4 flex h-[calc(100dvh-72px-32px)] max-h-[1024px] translate-y-[-10px] flex-col overflow-hidden rounded-2xl bg-white bg-[url(/st-pete.webp)] bg-cover opacity-0 md:min-h-[658px]'
+          'relative m-4 flex h-[calc(100dvh-72px-32px)] max-h-[1024px] translate-y-[-10px] animate-fade-in flex-col overflow-hidden rounded-2xl bg-white bg-[url(/st-pete.webp)] bg-cover opacity-0 md:min-h-[658px]'
         }
       >
         <div
@@ -24,13 +25,14 @@ export default async function Home() {
           }
         >
           <div
-            className={
-              'ml-0 mr-auto mt-auto flex w-full flex-col items-start gap-6 bg-gradient-to-b from-[hsla(227,56%,49%,30%)] to-[hsla(4,83%,24%,80%)] p-4 text-white backdrop-blur-[12px] md:mb-auto md:w-auto md:p-16'
-            }
+            className={cn(
+              cardGradient,
+              'ml-0 mr-auto mt-auto flex w-full flex-col items-start gap-6 p-4 text-white md:mb-auto md:w-auto md:p-16',
+            )}
           >
             <h1
               className={
-                'font-serif text-[min(calc((100vw-96px)/6),72px)] leading-tight'
+                'font-serif text-[min(calc((100vw-96px)/6),72px)] italic leading-tight'
               }
             >
               Real community
