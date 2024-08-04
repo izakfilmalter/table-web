@@ -1,8 +1,9 @@
 import type { ComponentPropsWithRef, FC } from 'react'
-import { cn } from '@/lib/utils'
 import * as NavigationMenuPrimitive from '@radix-ui/react-navigation-menu'
 import { cva } from 'class-variance-authority'
 import { ChevronDown } from 'lucide-react'
+
+import { cn } from '@/lib/utils'
 
 const NavigationMenu: FC<
   ComponentPropsWithRef<typeof NavigationMenuPrimitive.Root>

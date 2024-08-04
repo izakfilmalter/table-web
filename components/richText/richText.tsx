@@ -1,9 +1,9 @@
 import type { FC } from 'react'
-import { cn } from '@/lib/utils'
 import { Option, pipe } from 'effect'
 
-import type { NodeTypes } from './serialize'
-import { serializeLexical } from './serialize'
+import type { NodeTypes } from '@/components/richText/serialize'
+import { serializeLexical } from '@/components/richText/serialize'
+import { cn } from '@/lib/utils'
 
 type Props = {
   className?: string

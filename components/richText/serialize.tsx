@@ -14,7 +14,7 @@ import {
   IS_SUBSCRIPT,
   IS_SUPERSCRIPT,
   IS_UNDERLINE,
-} from './nodeFormat'
+} from '@/components/richText/nodeFormat'
 
 export type NodeTypes = DefaultNodeTypes | SerializedBlockNode<JsonObject>
 // | Extract<Page['layout'][0], { blockType: 'cta' }>

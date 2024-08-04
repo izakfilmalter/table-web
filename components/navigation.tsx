@@ -10,6 +10,8 @@ import { useState } from 'react'
 import Image from 'next/image'
 import type { LinkProps } from 'next/link'
 import Link from 'next/link'
+import { MenuIcon } from 'lucide-react'
+
 import { containerClassName } from '@/components/container'
 import { Logo } from '@/components/logo'
 import { Button } from '@/components/ui/button'
@@ -25,7 +27,6 @@ import {
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { cn } from '@/lib/utils'
-import { MenuIcon } from 'lucide-react'
 
 const communityNavItems: Array<{
   title: string
@@ -94,6 +95,13 @@ export const Navigation: FC = () => {
                   Our Story
                 </MobileLink>
 
+                <MobileLink
+                  href={'/about-us/who-we-are'}
+                  onOpenChange={setOpen}
+                >
+                  Who We Are
+                </MobileLink>
+
                 <ExternalMobileLink
                   href={
                     'https://table-church.churchcenter.com/people/forms/789148'
@@ -123,8 +131,7 @@ export const Navigation: FC = () => {
               <NavigationMenuContent>
                 <ul
                   className={
-                    // lg:grid-cols-[.75fr_1fr]
-                    'grid gap-3 p-6 md:w-[400px] lg:w-[500px]'
+                    'grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]'
                   }
                 >
                   <li className={'row-span-3'}>
@@ -169,11 +176,7 @@ export const Navigation: FC = () => {
                       </a>
                     </NavigationMenuLink>
                   </li>
-                  <ListItem
-                    href={'/about-us/who-we-are'}
-                    title={'Who We Are'}
-                    className={'hidden'}
-                  >
+                  <ListItem href={'/about-us/who-we-are'} title={'Who We Are'}>
                     Learn about the new move the Lord is birthing to see revival
                     in the nations.
                   </ListItem>

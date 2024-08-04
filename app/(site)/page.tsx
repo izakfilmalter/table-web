@@ -1,10 +1,11 @@
+import { ChevronRight } from 'lucide-react'
+
 import { cardGradient } from '@/components/container'
 import { RichText } from '@/components/richText/richText'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import type { Vision } from '@/payload-types'
 import { getCachedGlobal } from '@/shared/payload/getGlobals'
-import { ChevronRight } from 'lucide-react'
 
 const contentClassName =
   'w-full max-w-[780px] text-[22px] md:text-3xl font-bold'
@@ -16,7 +17,7 @@ export default async function Home() {
     <>
       <div
         className={
-          'animate-fade-in relative m-4 flex h-[calc(100dvh-72px-32px)] max-h-[1024px] translate-y-[-10px] flex-col overflow-hidden rounded-2xl bg-white bg-[url(/st-pete.webp)] bg-cover opacity-0 md:min-h-[658px]'
+          'relative m-4 flex h-[calc(100dvh-72px-32px)] max-h-[1024px] translate-y-[-10px] animate-fade-in flex-col overflow-hidden rounded-2xl bg-white bg-[url(/st-pete.webp)] bg-cover opacity-0 md:min-h-[658px]'
         }
       >
         <div

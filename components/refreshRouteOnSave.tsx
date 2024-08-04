@@ -2,8 +2,9 @@
 
 import type { FC } from 'react'
 import { useRouter } from 'next/navigation.js'
-import { env } from '@/env.mjs'
 import { RefreshRouteOnSave as PayloadLivePreview } from '@payloadcms/live-preview-react'
+
+import { env } from '@/env.mjs'
 
 export const RefreshRouteOnSave: FC = () => {
   const router = useRouter()

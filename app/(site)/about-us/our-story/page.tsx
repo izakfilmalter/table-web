@@ -1,4 +1,5 @@
 import type { FC } from 'react'
+
 import { cardGradientDark, containerClassName } from '@/components/container'
 import { cn } from '@/lib/utils'
 
@@ -9,19 +10,19 @@ export default function OurStory() {
         <div className={'flex flex-col md:flex-row'}>
           <div
             className={
-              'animate-fade-in md:flex-2 flex h-[600px] translate-y-[-10px] flex-col rounded-t-2xl bg-[url(/family.webp)] bg-cover bg-center opacity-0 md:rounded-b-2xl'
+              'flex h-[600px] translate-y-[-10px] animate-fade-in flex-col rounded-t-2xl bg-[url(/family.webp)] bg-cover bg-center opacity-0 md:flex-2 md:rounded-b-2xl'
             }
           >
             <PastorText
               className={
-                'animate-fade-in hidden translate-y-[-10px] opacity-0 delay-100 md:flex'
+                'hidden translate-y-[-10px] animate-fade-in opacity-0 delay-100 md:flex'
               }
             />
           </div>
           <div
             className={cn(
               cardGradientDark,
-              'animate-fade-in translate-y-[-10px] p-8 text-2xl font-bold text-white opacity-0 md:-ml-40 md:mt-40 md:flex-1 md:delay-300',
+              'translate-y-[-10px] animate-fade-in p-8 text-2xl font-bold text-white opacity-0 md:-ml-40 md:mt-40 md:flex-1 md:delay-300',
             )}
           >
             <PastorText className={'mx-0 mb-4 md:hidden'} />

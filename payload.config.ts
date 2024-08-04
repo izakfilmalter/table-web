@@ -1,9 +1,10 @@
-import { env } from '@/env.mjs'
-import { revalidateGlobal } from '@/shared/payload/revalidateGlobal'
 import { postgresAdapter } from '@payloadcms/db-postgres'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import { buildConfig } from 'payload'
 import sharp from 'sharp'
+
+import { env } from '@/env.mjs'
+import { revalidateGlobal } from '@/shared/payload/revalidateGlobal'
 
 export default buildConfig({
   // If you'd like to use Rich Text, pass your editor here
