@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button'
 export const InterestPartyCard: FC = () => (
   <div
     className={
-      '-mb-2 flex flex-1 flex-col items-start justify-between gap-2 rounded-2xl bg-red-300 px-8 py-4 md:flex-row md:items-center md:gap-4'
+      '-mb-4 flex flex-1 flex-col items-start justify-between gap-2 rounded-t-2xl bg-red-300 px-8 py-4 md:flex-row md:items-center md:gap-4'
     }
   >
     <h1 className={'font-serif text-4xl font-medium italic md:text-3xl'}>
