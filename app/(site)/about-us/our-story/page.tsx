@@ -9,22 +9,22 @@ export default function OurStory() {
         <div className={'flex flex-col md:flex-row'}>
           <div
             className={
-              'flex h-[600px] translate-y-[-10px] animate-fade-in flex-col rounded-t-2xl bg-[url(/family.webp)] bg-cover bg-center opacity-0 md:flex-2 md:rounded-b-2xl'
+              'animate-fade-in md:flex-2 flex h-[600px] translate-y-[-10px] flex-col rounded-t-2xl bg-[url(/family.webp)] bg-cover bg-center opacity-0 md:rounded-b-2xl'
             }
           >
             <PastorText
               className={
-                'hidden translate-y-[-10px] animate-fade-in opacity-0 delay-100 md:flex'
+                'animate-fade-in hidden translate-y-[-10px] opacity-0 delay-100 md:flex'
               }
             />
           </div>
           <div
             className={cn(
               cardGradientDark,
-              'translate-y-[-10px] animate-fade-in p-8 text-2xl font-bold text-white opacity-0 md:-ml-40 md:mt-40 md:flex-1 md:delay-300',
+              'animate-fade-in translate-y-[-10px] p-8 text-2xl font-bold text-white opacity-0 md:-ml-40 md:mt-40 md:flex-1 md:delay-300',
             )}
           >
-            <PastorText className={'mx-0 mb-4 text-white md:hidden'} />
+            <PastorText className={'mx-0 mb-4 md:hidden'} />
             In 2016 we moved to Boston, MA to help plant a church. We felt the
             call of the Lord on our lives to go, and we went. Little did we know
             that the Lord would one day send us not to help, but to lead.

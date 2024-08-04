@@ -16,7 +16,7 @@ export default async function Home() {
     <>
       <div
         className={
-          'relative m-4 flex h-[calc(100dvh-72px-32px)] max-h-[1024px] translate-y-[-10px] animate-fade-in flex-col overflow-hidden rounded-2xl bg-white bg-[url(/st-pete.webp)] bg-cover opacity-0 md:min-h-[658px]'
+          'animate-fade-in relative m-4 flex h-[calc(100dvh-72px-32px)] max-h-[1024px] translate-y-[-10px] flex-col overflow-hidden rounded-2xl bg-white bg-[url(/st-pete.webp)] bg-cover opacity-0 md:min-h-[658px]'
         }
       >
         <div
@@ -32,7 +32,7 @@ export default async function Home() {
           >
             <h1
               className={
-                'font-serif text-[min(calc((100vw-96px)/6),72px)] italic leading-tight'
+                'font-serif text-[min(calc((100vw-64px)/6.59),72px)] italic leading-tight'
               }
             >
               Real community
