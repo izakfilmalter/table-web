@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import type { FC } from 'react'
 import { ArrowRightIcon } from 'lucide-react'
 
 import { buttonRightIcon } from '@/components/globalStyles'
