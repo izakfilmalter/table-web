@@ -1,5 +1,5 @@
 import type { FC } from 'react'
-import { ChevronRight } from 'lucide-react'
+import { ArrowRightIcon } from 'lucide-react'
 
 import { cardGradient } from '@/components/container'
 import { Button } from '@/components/ui/button'
@@ -48,7 +48,7 @@ export const HeroCard: FC = () => (
             data-open-in-church-center-modal={'true'}
           >
             Get Connected
-            <ChevronRight />
+            <ArrowRightIcon className={'-mr-1.5 ml-2'} />
           </a>
         </Button>
       </div>
