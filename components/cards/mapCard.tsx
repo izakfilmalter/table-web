@@ -1,0 +1,31 @@
+import type { FC } from 'react'
+
+import { StPeteMap } from '@/components/stPeteMap'
+
+export const MapCard: FC = () => (
+  <div
+    className={
+      'relative flex h-[512px] translate-y-[-10px] animate-fade-in flex-col overflow-hidden rounded-2xl bg-gray-200 opacity-0 delay-200'
+    }
+  >
+    <div className={'absolute left-0 right-0 top-0 h-[calc(100%+32px)]'}>
+      <StPeteMap />
+    </div>
+
+    <h1
+      className={
+        'relative mx-6 mb-2 mt-auto text-[min(calc((100vw-80px)/3.27),96px)] font-bold leading-none'
+      }
+    >
+      <span className={'text-black/10'}>
+        Paris
+        <br />
+        London
+        <br />
+        Tokyo
+      </span>
+      <br />
+      St Pete
+    </h1>
+  </div>
+)
