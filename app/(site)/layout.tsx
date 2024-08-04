@@ -55,7 +55,7 @@ const fontSerif = localFont({
     },
     {
       weight: '100',
-      path: './fonts/editorial-new.woff2',
+      path: './fonts/editorial-new-italic.woff2',
       style: 'italic',
     },
     {
@@ -65,7 +65,7 @@ const fontSerif = localFont({
     },
     {
       weight: '200',
-      path: './fonts/editorial-new.woff2',
+      path: './fonts/editorial-new-italic.woff2',
       style: 'italic',
     },
     {
@@ -75,7 +75,7 @@ const fontSerif = localFont({
     },
     {
       weight: '300',
-      path: './fonts/editorial-new.woff2',
+      path: './fonts/editorial-new-italic.woff2',
       style: 'italic',
     },
     {
@@ -85,7 +85,7 @@ const fontSerif = localFont({
     },
     {
       weight: '400',
-      path: './fonts/editorial-new.woff2',
+      path: './fonts/editorial-new-italic.woff2',
       style: 'italic',
     },
     {
@@ -95,7 +95,7 @@ const fontSerif = localFont({
     },
     {
       weight: '475',
-      path: './fonts/editorial-new.woff2',
+      path: './fonts/editorial-new-italic.woff2',
       style: 'italic',
     },
     {
@@ -105,7 +105,7 @@ const fontSerif = localFont({
     },
     {
       weight: '600',
-      path: './fonts/editorial-new.woff2',
+      path: './fonts/editorial-new-italic.woff2',
       style: 'italic',
     },
     {
@@ -115,7 +115,7 @@ const fontSerif = localFont({
     },
     {
       weight: '700',
-      path: './fonts/editorial-new.woff2',
+      path: './fonts/editorial-new-italic.woff2',
       style: 'italic',
     },
     {
@@ -125,7 +125,7 @@ const fontSerif = localFont({
     },
     {
       weight: '800',
-      path: './fonts/editorial-new.woff2',
+      path: './fonts/editorial-new-italic.woff2',
       style: 'italic',
     },
     {
@@ -135,7 +135,7 @@ const fontSerif = localFont({
     },
     {
       weight: '900',
-      path: './fonts/editorial-new.woff2',
+      path: './fonts/editorial-new-italic.woff2',
       style: 'italic',
     },
   ],

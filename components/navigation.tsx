@@ -7,8 +7,10 @@ import type {
   ReactNode,
 } from 'react'
 import { useState } from 'react'
+import Image from 'next/image'
 import type { LinkProps } from 'next/link'
 import Link from 'next/link'
+import { containerClassName } from '@/components/container'
 import { Logo } from '@/components/logo'
 import { Button } from '@/components/ui/button'
 import {
@@ -62,11 +64,14 @@ export const Navigation: FC = () => {
   return (
     <header className={'fixed left-0 top-0 z-[60] w-full backdrop-blur-[12px]'}>
       <div
-        className={
-          'mx-auto flex h-navigation-height max-w-[1200px] flex-row items-center px-[32px]'
-        }
+        className={cn(
+          containerClassName,
+          'h-navigation-height flex-row items-center',
+        )}
       >
-        <Logo className={'h-12 w-auto'} />
+        <Link href={'/'}>
+          <Logo className={'h-12 w-auto'} />
+        </Link>
 
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger asChild>
@@ -83,6 +88,10 @@ export const Navigation: FC = () => {
               <div className={'flex flex-col gap-y-3'}>
                 <MobileLink href={'/'} onOpenChange={setOpen}>
                   Home
+                </MobileLink>
+
+                <MobileLink href={'/about-us/our-story'} onOpenChange={setOpen}>
+                  Our Story
                 </MobileLink>
 
                 <ExternalMobileLink
@@ -107,31 +116,51 @@ export const Navigation: FC = () => {
           </SheetContent>
         </Sheet>
 
-        <NavigationMenu className={'ml-auto mr-0 hidden md:flex'}>
+        <NavigationMenu className={'mx-auto hidden md:flex'}>
           <NavigationMenuList>
-            <NavigationMenuItem className={'hidden'}>
+            <NavigationMenuItem value={'about-us'}>
               <NavigationMenuTrigger>About Us</NavigationMenuTrigger>
               <NavigationMenuContent>
                 <ul
                   className={
-                    'grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]'
+                    // lg:grid-cols-[.75fr_1fr]
+                    'grid gap-3 p-6 md:w-[400px] lg:w-[500px]'
                   }
                 >
                   <li className={'row-span-3'}>
                     <NavigationMenuLink asChild>
                       <a
                         className={
-                          'flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md'
+                          'rounded-4xl relative flex h-full w-full select-none flex-col justify-end overflow-hidden p-6 no-underline outline-none focus:shadow-md'
                         }
                         href={'/about-us/our-story'}
                       >
-                        <div className={'h-6 w-6'} />
-                        <div className={'mb-2 mt-4 text-lg font-medium'}>
+                        <Image
+                          src={'/family.webp'}
+                          alt={'Filmalter Family'}
+                          fill
+                          priority
+                          className={'z-0'}
+                          style={{
+                            objectFit: 'cover',
+                          }}
+                        />
+
+                        <div
+                          className={
+                            'absolute inset-0 z-0 bg-gradient-to-b from-muted/50 to-muted'
+                          }
+                        />
+
+                        <div className={'relative h-6 w-6'} />
+                        <div
+                          className={'relative mb-2 mt-4 text-lg font-medium'}
+                        >
                           Our Story
                         </div>
                         <p
                           className={
-                            'text-sm leading-tight text-muted-foreground'
+                            'relative text-sm leading-tight text-muted-foreground'
                           }
                         >
                           Hear the story of our pastors, how the Lord moved them
@@ -140,17 +169,29 @@ export const Navigation: FC = () => {
                       </a>
                     </NavigationMenuLink>
                   </li>
-                  <ListItem href={'/about-us/our-story'} title={'Our Story'}>
-                    Re-usable components built using Radix UI and Tailwind CSS.
-                  </ListItem>
-                  <ListItem href={'/about-us/our-values'} title={'Our Values'}>
-                    How to install dependencies and structure your app.
+                  <ListItem
+                    href={'/about-us/who-we-are'}
+                    title={'Who We Are'}
+                    className={'hidden'}
+                  >
+                    Learn about the new move the Lord is birthing to see revival
+                    in the nations.
                   </ListItem>
                   <ListItem
-                    href={'/about-us/our-beliefs'}
-                    title={'Our Beliefs'}
+                    href={'/about-us/values'}
+                    title={'Values'}
+                    className={'hidden'}
                   >
-                    Styles for headings, paragraphs, lists...etc
+                    We are driven by what we hold dear, our values found in the
+                    word.
+                  </ListItem>
+                  <ListItem
+                    href={'/about-us/beliefs'}
+                    title={'Beliefs'}
+                    className={'hidden'}
+                  >
+                    The foundations of our faith, how we view God, Jesus, and
+                    the Holy Spirit.
                   </ListItem>
                 </ul>
               </NavigationMenuContent>
@@ -211,25 +252,21 @@ const ListItem: FC<ComponentPropsWithRef<'a'>> = ({
   ref,
   ...props
 }) => (
-  <li>
-    <NavigationMenuLink asChild>
-      <a
-        ref={ref}
-        className={cn(
-          'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
-          className,
-        )}
-        {...props}
-      >
-        <div className={'text-sm font-medium leading-none'}>{title}</div>
-        <p
-          className={'line-clamp-2 text-sm leading-snug text-muted-foreground'}
-        >
-          {children}
-        </p>
-      </a>
-    </NavigationMenuLink>
-  </li>
+  <NavigationMenuLink asChild>
+    <a
+      ref={ref}
+      className={cn(
+        'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
+        className,
+      )}
+      {...props}
+    >
+      <div className={'text-sm font-medium leading-none'}>{title}</div>
+      <p className={'line-clamp-2 text-sm leading-snug text-muted-foreground'}>
+        {children}
+      </p>
+    </a>
+  </NavigationMenuLink>
 )
 
 type MobileLinkProps = LinkProps & {

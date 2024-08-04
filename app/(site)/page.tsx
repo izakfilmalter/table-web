@@ -1,3 +1,4 @@
+import { cardGradient } from '@/components/container'
 import { RichText } from '@/components/richText/richText'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
@@ -20,17 +21,18 @@ export default async function Home() {
       >
         <div
           className={
-            'm-auto flex h-full w-full max-w-[1200px] flex-col items-start md:px-[32px] md:py-4'
+            'm-auto flex h-full w-full max-w-[1200px] flex-col md:px-[32px] md:py-4'
           }
         >
           <div
-            className={
-              'ml-0 mr-auto mt-auto flex w-full flex-col gap-6 bg-gradient-to-b from-[hsla(227,56%,49%,30%)] to-[hsla(4,83%,24%,80%)] p-4 text-white backdrop-blur-[12px] md:mb-auto md:w-auto md:p-16'
-            }
+            className={cn(
+              cardGradient,
+              'ml-0 mr-auto mt-auto flex w-full flex-col items-start gap-6 p-4 text-white md:mb-auto md:w-auto md:p-16',
+            )}
           >
             <h1
               className={
-                'font-serif text-[min(calc((100vw-96px)/6),72px)] leading-tight'
+                'font-serif text-[min(calc((100vw-96px)/6),72px)] italic leading-tight'
               }
             >
               Real community
