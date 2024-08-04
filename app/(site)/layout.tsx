@@ -152,6 +152,20 @@ export const metadata: Metadata = {
       { url: '/favicon-16x16.png', sizes: '16x16' },
     ],
   },
+  openGraph: {
+    type: 'website',
+    siteName: 'Table Church',
+    title: 'Table Church',
+    description:
+      'Real community. Real discipleship. Real revival. St Pete saved.',
+    images: [
+      {
+        url: 'https://table-church.com/opengraph.jpg',
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
 }
 
 export default function RootLayout({
