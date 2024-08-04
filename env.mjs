@@ -21,6 +21,7 @@ export const env = createEnv({
    */
   client: {
     NEXT_PUBLIC_PAYLOAD_URL: z.string().url(),
+    NEXT_PUBLIC_GOOGLE_MAPS_API_KEY: z.string(),
   },
 
   /**
@@ -29,9 +30,11 @@ export const env = createEnv({
    */
   runtimeEnv: {
     DATABASE_URL: process.env.DATABASE_URL,
+    NEXT_PUBLIC_GOOGLE_MAPS_API_KEY:
+      process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
+    NEXT_PUBLIC_PAYLOAD_URL: process.env.NEXT_PUBLIC_PAYLOAD_URL,
     NODE_ENV: process.env.NODE_ENV,
     PAYLOAD_SECRET: process.env.PAYLOAD_SECRET,
-    NEXT_PUBLIC_PAYLOAD_URL: process.env.NEXT_PUBLIC_PAYLOAD_URL,
   },
   /**
    * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially

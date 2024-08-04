@@ -1,23 +1,19 @@
 import { ChevronRight } from 'lucide-react'
 
 import { cardGradient } from '@/components/container'
-import { RichText } from '@/components/richText/richText'
+import { Map } from '@/components/map'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
-import type { Vision } from '@/payload-types'
-import { getCachedGlobal } from '@/shared/payload/getGlobals'
 
 const contentClassName =
   'w-full max-w-[780px] text-[22px] md:text-3xl font-bold'
 
-export default async function Home() {
-  const vision: Vision = await getCachedGlobal('vision', 1)()
-
+export default function Home() {
   return (
-    <>
+    <div className={'flex flex-col gap-4 pb-4'}>
       <div
         className={
-          'relative m-4 flex h-[calc(100dvh-72px-32px)] max-h-[1024px] translate-y-[-10px] animate-fade-in flex-col overflow-hidden rounded-2xl bg-white bg-[url(/st-pete.webp)] bg-cover opacity-0 md:min-h-[658px]'
+          'relative mx-4 flex h-[calc(100dvh-72px-32px)] max-h-[1024px] translate-y-[-10px] animate-fade-in flex-col overflow-hidden rounded-2xl bg-white bg-[url(/st-pete.webp)] bg-cover opacity-0 md:min-h-[658px]'
         }
       >
         <div
@@ -67,13 +63,30 @@ export default async function Home() {
           </div>
         </div>
       </div>
+
       <div
         className={
-          'mx-auto my-16 flex max-w-[732px] flex-col items-start gap-16 px-8'
+          'relative mx-4 flex h-[512px] translate-y-[-10px] animate-fade-in flex-col overflow-hidden rounded-2xl bg-gray-200 opacity-0 delay-200'
         }
       >
-        <RichText content={vision.content} className={'text-4xl font-bold'} />
+        <Map />
+
+        <h1
+          className={
+            'relative mx-6 mb-2 mt-auto text-[min(calc((100vw-80px)/3.27),96px)] font-bold leading-none'
+          }
+        >
+          <span className={'text-black/10'}>
+            Paris
+            <br />
+            London
+            <br />
+            Tokyo
+          </span>
+          <br />
+          St Pete
+        </h1>
       </div>
-    </>
+    </div>
   )
 }
