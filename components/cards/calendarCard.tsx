@@ -5,7 +5,11 @@ import { ArrowRightIcon } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 export const CalendarCard: FC = () => (
-  <div className={'flex flex-col gap-4 md:flex-row'}>
+  <div
+    className={
+      'flex translate-y-[-10px] animate-fade-in flex-col gap-4 opacity-0 delay-200 md:flex-row'
+    }
+  >
     <Day day={'Sunday'} />
     <Day day={'Monday'} />
     <Day day={'Tuesday'}>
