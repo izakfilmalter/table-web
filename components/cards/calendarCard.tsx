@@ -115,9 +115,9 @@ const Event: FC<EventProps> = (props) => {
         <p className={'mb-1 text-xl font-bold'}>{Name}</p>
         <p className={'text-md mb-6'}>{Description}</p>
 
-        <div className={'mt-auto flex flex-row items-center justify-between'}>
+        <div className={'mt-auto flex flex-row items-end justify-between'}>
           <p className={'text-lg'}>{Time}</p>
-          <ArrowRightIcon />
+          <ArrowRightIcon className={'mb-[3px] flex-shrink-0'} />
         </div>
       </div>
     </a>
