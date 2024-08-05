@@ -70,7 +70,7 @@ export const Navigation: FC = () => {
         )}
       >
         <Link href={'/'}>
-          <Logo className={'h-12 w-auto'} />
+          <Logo className={'h-12 w-auto md:mr-[-190px]'} />
         </Link>
 
         <Sheet open={open} onOpenChange={setOpen}>
@@ -186,7 +186,11 @@ export const Navigation: FC = () => {
                     We are driven by what we hold dear, our values found in the
                     word.
                   </ListItem>
-                  <ListItem href={'/about-us/beliefs'} title={'Beliefs'}>
+                  <ListItem
+                    href={'/about-us/beliefs'}
+                    title={'Beliefs'}
+                    className={'hidden'}
+                  >
                     The foundations of our faith, how we view God, Jesus, and
                     the Holy Spirit.
                   </ListItem>
