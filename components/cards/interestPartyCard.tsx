@@ -9,7 +9,7 @@ export const InterestPartyCard: FC = () => (
     href={'https://table-church.churchcenter.com/people/forms/789467'}
     data-open-in-church-center-modal={'true'}
     className={
-      '-mb-4 flex flex-1 flex-col items-start justify-between gap-2 rounded-t-2xl bg-red-200 px-8 py-4 transition-all hover:bg-red-300 active:bg-red-200 md:flex-row md:items-center md:gap-4'
+      'flex flex-1 flex-col items-start justify-between gap-2 rounded-t-2xl bg-red-200 px-8 py-4 transition-all hover:bg-red-300 active:bg-red-200 md:flex-row md:items-center md:gap-4'
     }
   >
     <div className={'flex w-full flex-row justify-between md:w-auto'}>
