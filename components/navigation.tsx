@@ -188,11 +188,7 @@ export const Navigation: FC = () => {
                     We are driven by what we hold dear, our values found in the
                     word.
                   </ListItem>
-                  <ListItem
-                    href={'/about-us/beliefs'}
-                    title={'Beliefs'}
-                    className={'hidden'}
-                  >
+                  <ListItem href={'/about-us/beliefs'} title={'Beliefs'}>
                     The foundations of our faith, how we view God, Jesus, and
                     the Holy Spirit.
                   </ListItem>
