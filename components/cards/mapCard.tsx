@@ -8,7 +8,11 @@ export const MapCard: FC = () => (
       'delay-400 relative flex h-[512px] translate-y-[-10px] animate-fade-in flex-col overflow-hidden rounded-2xl bg-gray-200 opacity-0'
     }
   >
-    <div className={'absolute left-0 right-0 top-0 h-[calc(100%+32px)]'}>
+    <div
+      className={
+        'pointer-events-none absolute left-0 right-0 top-0 h-[calc(100%+32px)]'
+      }
+    >
       <StPeteMap />
     </div>
 

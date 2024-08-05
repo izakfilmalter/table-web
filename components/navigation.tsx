@@ -24,7 +24,6 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu'
-import { ScrollArea } from '@/components/ui/scroll-area'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { cn } from '@/lib/utils'
 
@@ -85,42 +84,41 @@ export const Navigation: FC = () => {
               event.preventDefault()
             }}
           >
-            <ScrollArea className={'my-4'}>
-              <div className={'flex flex-col gap-y-3'}>
-                <MobileLink href={'/'} onOpenChange={setOpen}>
-                  Home
-                </MobileLink>
+            <div
+              className={
+                'my-4 flex flex-col gap-y-3 overflow-y-auto overflow-x-hidden'
+              }
+            >
+              <MobileLink href={'/'} onOpenChange={setOpen}>
+                Home
+              </MobileLink>
 
-                <MobileLink href={'/about-us/our-story'} onOpenChange={setOpen}>
-                  Our Story
-                </MobileLink>
+              <MobileLink href={'/about-us/our-story'} onOpenChange={setOpen}>
+                Our Story
+              </MobileLink>
 
-                <MobileLink
-                  href={'/about-us/who-we-are'}
-                  onOpenChange={setOpen}
-                >
-                  Who We Are
-                </MobileLink>
+              <MobileLink href={'/about-us/who-we-are'} onOpenChange={setOpen}>
+                Who We Are
+              </MobileLink>
 
-                <ExternalMobileLink
-                  href={
-                    'https://table-church.churchcenter.com/people/forms/789148'
-                  }
-                  data-open-in-church-center-modal={'true'}
-                  onOpenChange={setOpen}
-                >
-                  Connect
-                </ExternalMobileLink>
+              <ExternalMobileLink
+                href={
+                  'https://table-church.churchcenter.com/people/forms/789148'
+                }
+                data-open-in-church-center-modal={'true'}
+                onOpenChange={setOpen}
+              >
+                Connect
+              </ExternalMobileLink>
 
-                <ExternalMobileLink
-                  href={'https://table-church.churchcenter.com/giving'}
-                  data-open-in-church-center-modal={'true'}
-                  onOpenChange={setOpen}
-                >
-                  Give
-                </ExternalMobileLink>
-              </div>
-            </ScrollArea>
+              <ExternalMobileLink
+                href={'https://table-church.churchcenter.com/giving'}
+                data-open-in-church-center-modal={'true'}
+                onOpenChange={setOpen}
+              >
+                Give
+              </ExternalMobileLink>
+            </div>
           </SheetContent>
         </Sheet>
 

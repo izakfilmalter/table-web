@@ -1,6 +1,5 @@
 import { Navigation } from '@/components/navigation'
 import { RefreshRouteOnSave } from '@/components/refreshRouteOnSave'
-import { ScrollArea } from '@/components/ui/scroll-area'
 import { cn } from '@/lib/utils'
 
 import './globals.css'
@@ -176,7 +175,7 @@ export default function RootLayout({
   return (
     <html
       className={
-        'min-h-[max(calc(100%+env(safe-area-inset-top)),100dvh)] overflow-hidden overscroll-none'
+        'display-height overflow-hidden overscroll-none [scroll-behavior:smooth]'
       }
       lang={'en'}
     >
@@ -185,7 +184,7 @@ export default function RootLayout({
       </head>
       <body
         className={cn(
-          'flew-row flex h-dvh w-full overflow-hidden font-sans antialiased',
+          'flew-row display-height flex w-full overflow-hidden font-sans antialiased',
           fontSans.variable,
           fontSerif.variable,
         )}
@@ -195,15 +194,13 @@ export default function RootLayout({
         <main className={'bg-page-gradient flex w-full flex-col'}>
           <Navigation />
 
-          <ScrollArea>
-            <div
-              className={
-                'flex min-h-dvh w-dvw flex-col overflow-x-hidden pt-navigation-height'
-              }
-            >
-              {children}
-            </div>
-          </ScrollArea>
+          <div
+            className={
+              'display-min-height flex w-dvw flex-col overflow-y-auto overflow-x-hidden pt-navigation-height [-webkit-overflow-scrolling:touch]'
+            }
+          >
+            {children}
+          </div>
         </main>
       </body>
     </html>
