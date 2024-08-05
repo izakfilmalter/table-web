@@ -39,8 +39,8 @@ export const HeroCard: FC = () => (
         <h2 className={cn(contentClassName)}>
           We'd love to connect with you!
           <br />
-          Find a place to grow,
-          <br />a place to pray, a place to thrive.
+          Find a place to grow, a place
+          <br /> to pray, a place to thrive.
         </h2>
         <Button variant={'secondary'} size={'lg'} asChild>
           <a
