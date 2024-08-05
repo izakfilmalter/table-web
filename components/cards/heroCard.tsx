@@ -11,7 +11,7 @@ const contentClassName =
 export const HeroCard: FC = () => (
   <div
     className={
-      'relative flex h-[calc(100dvh-72px-32px)] max-h-[1024px] translate-y-[-10px] animate-fade-in flex-col overflow-hidden rounded-b-2xl bg-white bg-[url(/st-pete.webp)] bg-cover opacity-0 md:min-h-[658px]'
+      'relative flex h-[calc(100dvh-168px)] max-h-[1024px] min-h-[740px] translate-y-[-10px] animate-fade-in flex-col overflow-hidden rounded-b-2xl bg-white bg-[url(/st-pete.webp)] bg-cover opacity-0 md:min-h-[658px]'
     }
   >
     <div
@@ -27,7 +27,7 @@ export const HeroCard: FC = () => (
       >
         <h1
           className={
-            'font-serif text-[min(calc((100vw-64px)/6.59),72px)] italic leading-tight'
+            'font-serif text-[min(calc((100vw-64px)/6.9),72px)] italic leading-tight'
           }
         >
           Real community
