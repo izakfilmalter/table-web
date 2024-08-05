@@ -62,7 +62,7 @@ const Day: FC<DayProps> = (props) => {
   return (
     <div
       className={cn(
-        'flex-col gap-2 rounded-xl bg-secondary/50',
+        'flex-col gap-2 rounded-xl bg-secondary',
         pipe(
           active,
           Boolean.match({
