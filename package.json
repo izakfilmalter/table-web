@@ -25,7 +25,6 @@
     "@payloadcms/richtext-lexical": "beta",
     "@radix-ui/react-dialog": "^1.1.1",
     "@radix-ui/react-navigation-menu": "1.2.0",
-    "@radix-ui/react-scroll-area": "1.1.0",
     "@radix-ui/react-slot": "1.1.0",
     "@t3-oss/env-nextjs": "0.11.0",
     "@vis.gl/react-google-maps": "1.1.0",
