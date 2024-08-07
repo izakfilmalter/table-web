@@ -25,7 +25,7 @@ export default function OurStory() {
               'translate-y-[-10px] animate-fade-in p-8 text-2xl font-bold text-white opacity-0 md:-ml-40 md:mt-40 md:flex-1 md:delay-300',
             )}
           >
-            <PastorText className={'mx-0 mb-4 md:hidden'} />
+            <PastorText className={'mx-0 mb-4 text-white md:hidden'} />
             In 2016 we moved to Boston, MA to help plant a church. We felt the
             call of the Lord on our lives to go, and we went. Little did we know
             that the Lord would one day send us not to help, but to lead.
@@ -63,13 +63,13 @@ const PastorText: FC<PastorTextProps> = (props) => {
   return (
     <div
       className={cn(
-        'relative mx-4 flex flex-col md:bottom-[calc(-100%-32px)] md:mx-8',
+        'relative mx-4 flex flex-col text-black md:bottom-[calc(-100%-32px)] md:mx-8',
         className,
       )}
     >
       <h1
         className={
-          'font-serif text-6xl italic leading-tight text-black md:text-8xl md:leading-tight'
+          'font-serif text-6xl italic leading-tight md:text-8xl md:leading-tight'
         }
       >
         Ps. Izak & Amy

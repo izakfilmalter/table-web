@@ -1,6 +1,7 @@
 import { CalendarCard } from '@/components/cards/calendarCard'
 import { HeroCard } from '@/components/cards/heroCard'
 import { MapCard } from '@/components/cards/mapCard'
+import { OurStoryCard } from '@/components/cards/ourStoryCard'
 import { VisionCard } from '@/components/cards/visionCard'
 import { WhoWeAreCard } from '@/components/cards/whoWeAreCard'
 
@@ -14,6 +15,7 @@ export default function Home() {
         <VisionCard />
         <WhoWeAreCard />
       </div>
+      <OurStoryCard />
     </div>
   )
 }
