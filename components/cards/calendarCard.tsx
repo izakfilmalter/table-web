@@ -7,22 +7,22 @@ import { cn } from '@/lib/utils'
 export const CalendarCard: FC = () => (
   <div
     className={
-      'flex translate-y-[-10px] animate-fade-in flex-col gap-2 opacity-0 delay-200 md:flex-row'
+      'flex translate-y-[-10px] animate-fade-in flex-col gap-3 opacity-0 delay-200 md:flex-row'
     }
   >
     <Day day={'Sunday'} />
-    <Day day={'Monday'} />
-    <Day day={'Tuesday'}>
+    <Day day={'Monday'}>
       <Event
         Name={'Prayer'}
         Description={
           'A time for prayer for the harvest in St Pete. Interceding fo the Lord to heal our land.'
         }
-        Time={'7:30 PM - 8:30 PM'}
+        Time={'6:30 PM - 8:00 PM'}
         href={'https://table-church.churchcenter.com/people/forms/789394'}
         className={'bg-teal-200 hover:bg-teal-300 active:bg-teal-200'}
       />
     </Day>
+    <Day day={'Tuesday'} />
     <Day day={'Wednesday'} />
     <Day day={'Thursday'}>
       <Event
@@ -106,7 +106,7 @@ const Event: FC<EventProps> = (props) => {
     <a
       href={href}
       className={cn(
-        'm-px flex flex-1 cursor-pointer select-none flex-row gap-2 rounded-b-[11px] rounded-t-xl bg-gray-200 p-2 transition-all',
+        'flex flex-1 cursor-pointer select-none flex-row gap-2 rounded-[inherit] bg-gray-200 p-2 transition-all',
         className,
       )}
       data-open-in-church-center-modal={'true'}
