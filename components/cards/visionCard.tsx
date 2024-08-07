@@ -19,7 +19,7 @@ export const VisionCard: FC = () => (
     <p className={boldText}>
       Jesus has called us to see revival in every nation, tribe, people, and
       tongue. Starting in St Pete, the next harvest will begin. This move will
-      be know for walking with the Spirit, advancing the gospel, and the
+      be known for walking with the Spirit, advancing the gospel, and the
       demonstration of signs and wonders.
     </p>
   </div>
