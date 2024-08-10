@@ -1,7 +1,7 @@
 import type { FC } from 'react'
 import { ArrowRightIcon } from 'lucide-react'
 
-import { InterestPartyCard } from '@/components/cards/interestPartyCard'
+import { ServiceBanner } from '@/components/cards/serviceBanner'
 import { buttonRightIcon, cardGradient } from '@/components/globalStyles'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
@@ -13,7 +13,7 @@ export const HeroCard: FC = () => (
   <div
     className={'flex translate-y-[-10px] animate-fade-in flex-col opacity-0'}
   >
-    <InterestPartyCard />
+    <ServiceBanner />
     <div
       className={
         'relative flex h-[calc(100dvh-168px)] max-h-[1024px] min-h-[740px] flex-col overflow-hidden rounded-b-2xl bg-white bg-[url(/st-pete.webp)] bg-cover md:min-h-[658px]'
