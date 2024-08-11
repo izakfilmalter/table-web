@@ -23,7 +23,7 @@ export const ServiceBanner: FC = () => (
     </div>
 
     <p className={'text-xl font-bold text-black md:text-2xl'}>
-      Break bread. Find community. Love on Jesus. Thursday Aug 8th @ 6pm
+      Break bread. Find community. Grow. Thursdays @ 6pm
     </p>
 
     <Button variant={'default'} size={'lg'} className={'hidden md:flex'}>
