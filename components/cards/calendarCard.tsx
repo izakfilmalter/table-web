@@ -2,6 +2,7 @@ import type { FC, ReactNode } from 'react'
 import { Boolean, Option, pipe } from 'effect'
 import { ArrowRightIcon } from 'lucide-react'
 
+import { Badge } from '@/components/ui/badge'
 import { cn } from '@/lib/utils'
 
 export const CalendarCard: FC = () => (
@@ -10,8 +11,18 @@ export const CalendarCard: FC = () => (
       'flex translate-y-[-10px] animate-fade-in flex-col gap-3 opacity-0 delay-200 md:flex-row'
     }
   >
-    <Day day={'Sunday'} />
-    <Day day={'Monday'}>
+    <Day day={'Sunday'}>
+      <Event
+        Name={'Pack the Pier'}
+        Description={
+          'Join the Church of Tampa Bay at Pack the Pier. A time for public worship, drawing close to the Lord, healing, and restoration.'
+        }
+        Time={'6:30 PM - 8:00 PM'}
+        href={'https://table-church.churchcenter.com/people/forms/803638'}
+        className={'bg-rose-200 hover:bg-rose-300 active:bg-rose-200'}
+      />
+    </Day>
+    <Day day={'Monday'} Tag={'Fasting'}>
       <Event
         Name={'Prayer'}
         Description={
@@ -30,7 +41,7 @@ export const CalendarCard: FC = () => (
         Description={
           'A time for breaking bread, worshiping, sharing the word, growing in unity.'
         }
-        Time={'6:00 PM - 9:00 PM'}
+        Time={'7:00 PM - 9:30 PM'}
         href={'https://table-church.churchcenter.com/people/forms/789395'}
         className={'bg-indigo-200 hover:bg-indigo-300 active:bg-indigo-200'}
       />
@@ -52,11 +63,12 @@ export const CalendarCard: FC = () => (
 
 type DayProps = {
   day: string
+  Tag?: ReactNode
   children?: ReactNode
 }
 
 const Day: FC<DayProps> = (props) => {
-  const { day, children } = props
+  const { day, children, Tag } = props
   const active = pipe(children, Option.fromNullable, Option.isSome)
 
   return (
@@ -66,26 +78,37 @@ const Day: FC<DayProps> = (props) => {
         pipe(
           active,
           Boolean.match({
-            onFalse: () => 'hidden md:flex md:[writing-mode:vertical-lr]',
+            onFalse: () => 'hidden md:[writing-mode:vertical-lr] lg:flex',
             onTrue: () => 'flex flex-1',
           }),
         ),
       )}
     >
-      <p
-        className={cn(
-          'mx-4 mt-4 font-serif text-2xl italic',
-          pipe(
-            active,
-            Boolean.match({
-              onFalse: () => 'text-muted-foreground',
-              onTrue: () => '',
-            }),
-          ),
-        )}
+      <div
+        className={'mx-4 mt-4 flex flex-row items-center justify-between gap-2'}
       >
-        {day}
-      </p>
+        <p
+          className={cn(
+            'font-serif text-2xl italic',
+            pipe(
+              active,
+              Boolean.match({
+                onFalse: () => 'text-muted-foreground',
+                onTrue: () => '',
+              }),
+            ),
+          )}
+        >
+          {day}
+        </p>
+
+        {pipe(
+          Tag,
+          Option.fromNullable,
+          Option.map((x) => <Badge>{x}</Badge>),
+          Option.getOrNull,
+        )}
+      </div>
 
       {children}
     </div>
@@ -102,21 +125,23 @@ type EventProps = {
 
 const Event: FC<EventProps> = (props) => {
   const { Name, Time, Description, className, href } = props
+
   return (
     <a
       href={href}
       className={cn(
-        'flex flex-1 cursor-pointer select-none flex-row gap-2 rounded-[inherit] bg-gray-200 p-2 transition-all',
+        'flex flex-1 cursor-pointer select-none flex-col rounded-[inherit] bg-gray-200 transition-all',
         className,
       )}
       data-open-in-church-center-modal={'true'}
     >
-      <div className={'flex flex-1 flex-col rounded-xl p-4'}>
+      <div className={'flex flex-1 flex-col rounded-xl p-6'}>
         <p className={'mb-1 text-xl font-bold'}>{Name}</p>
+
         <p className={'text-md mb-6'}>{Description}</p>
 
         <div className={'mt-auto flex flex-row items-end justify-between'}>
-          <p className={'text-lg'}>{Time}</p>
+          <p className={'text-lg font-normal'}>{Time}</p>
           <ArrowRightIcon className={'mb-[3px] flex-shrink-0'} />
         </div>
       </div>
