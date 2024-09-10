@@ -1,9 +1,47 @@
 import type { FC, ReactNode } from 'react'
+import {
+  addDays,
+  addMonths,
+  differenceInCalendarDays,
+  getDay,
+  startOfMonth,
+} from 'date-fns/fp'
 import { Boolean, Option, pipe } from 'effect'
 import { ArrowRightIcon } from 'lucide-react'
 
 import { Badge } from '@/components/ui/badge'
 import { cn } from '@/lib/utils'
+
+// ChatGPT wrote this.
+function isLessThan6DaysFromFirstSunday(): boolean {
+  const today = new Date()
+
+  // Calculate the difference in days
+  const diffToFirstSundayCurrentMonth = pipe(
+    today,
+    startOfMonth,
+    getFirstSunday,
+    differenceInCalendarDays(today),
+    Math.abs,
+  )
+
+  const diffToFirstSundayNextMonth = pipe(
+    today,
+    addMonths(1),
+    startOfMonth,
+    getFirstSunday,
+    differenceInCalendarDays(today),
+    Math.abs,
+  )
+
+  // Return true if either difference is less than 7 days
+  return diffToFirstSundayCurrentMonth < 7 || diffToFirstSundayNextMonth < 7
+}
+
+// Helper function to get the first Sunday of a given date
+const getFirstSunday = (x: Date): Date => {
+  return pipe(x, addDays(pipe(getDay(x), (y) => (7 - y) % 7)))
+}
 
 export const CalendarCard: FC = () => (
   <div
@@ -12,15 +50,23 @@ export const CalendarCard: FC = () => (
     }
   >
     <Day day={'Sunday'}>
-      <Event
-        Name={'Pack the Pier'}
-        Description={
-          'Join the Church of Tampa Bay at Pack the Pier. A time for public worship, drawing close to the Lord, healing, and restoration.'
-        }
-        Time={'6:30 PM - 8:00 PM'}
-        href={'https://table-church.churchcenter.com/people/forms/803638'}
-        className={'bg-rose-200 hover:bg-rose-300 active:bg-rose-200'}
-      />
+      {pipe(
+        isLessThan6DaysFromFirstSunday(),
+        Boolean.match({
+          onFalse: () => null,
+          onTrue: () => (
+            <Event
+              Name={'Pack the Pier'}
+              Description={
+                'Join the Church of Tampa Bay at Pack the Pier. A time for public worship, drawing close to the Lord, healing, and restoration.'
+              }
+              Time={'6:30 PM - 8:00 PM'}
+              href={'https://table-church.churchcenter.com/people/forms/803638'}
+              className={'bg-rose-200 hover:bg-rose-300 active:bg-rose-200'}
+            />
+          ),
+        }),
+      )}
     </Day>
     <Day day={'Monday'} Tag={'Fasting'}>
       <Event
@@ -105,7 +151,7 @@ const Day: FC<DayProps> = (props) => {
         {pipe(
           Tag,
           Option.fromNullable,
-          Option.map((x) => <Badge>{x}</Badge>),
+          Option.map((x) => <Badge className={'mb-1.5'}>{x}</Badge>),
           Option.getOrNull,
         )}
       </div>
