@@ -1,4 +1,3 @@
-import { Navigation } from '@/components/navigation'
 import { RefreshRouteOnSave } from '@/components/refreshRouteOnSave'
 import { cn } from '@/lib/utils'
 
@@ -11,34 +10,9 @@ import localFont from 'next/font/local'
 const fontSans = localFont({
   src: [
     {
-      weight: '400',
-      path: './fonts/NeueHaasDisplayRoman.woff2',
+      weight: '800',
+      path: './fonts/PPMonumentExtended-Black.woff2',
       style: 'normal',
-    },
-    {
-      weight: '400',
-      path: './fonts/NeueHaasDisplayRomanItalic.woff2',
-      style: 'italic',
-    },
-    {
-      weight: '500',
-      path: './fonts/NeueHaasDisplayMedium.woff2',
-      style: 'normal',
-    },
-    {
-      weight: '500',
-      path: './fonts/NeueHaasDisplayMediumItalic.woff2',
-      style: 'italic',
-    },
-    {
-      weight: '750',
-      path: './fonts/NeueHaasDisplayBold.woff2',
-      style: 'normal',
-    },
-    {
-      weight: '750',
-      path: './fonts/NeueHaasDisplayBoldItalic.woff2',
-      style: 'italic',
     },
   ],
   display: 'swap',
@@ -192,15 +166,7 @@ export default function RootLayout({
         <RefreshRouteOnSave />
 
         <main className={'bg-page-gradient flex w-full flex-col'}>
-          <Navigation />
-
-          <div
-            className={
-              'display-min-height flex w-dvw flex-col overflow-y-auto overflow-x-hidden pt-navigation-height [-webkit-overflow-scrolling:touch]'
-            }
-          >
-            {children}
-          </div>
+          {children}
         </main>
       </body>
     </html>

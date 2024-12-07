@@ -1,21 +1,37 @@
-import { CalendarCard } from '@/components/cards/calendarCard'
-import { HeroCard } from '@/components/cards/heroCard'
-import { MapCard } from '@/components/cards/mapCard'
-import { OurStoryCard } from '@/components/cards/ourStoryCard'
-import { VisionCard } from '@/components/cards/visionCard'
-import { WhoWeAreCard } from '@/components/cards/whoWeAreCard'
-
 export default function Home() {
   return (
-    <div className={'flex flex-col gap-4 px-4 pb-4'}>
-      <HeroCard />
-      <CalendarCard />
-      <MapCard />
-      <div className={'flex flex-col gap-4 md:flex-row'}>
-        <VisionCard />
-        <WhoWeAreCard />
-      </div>
-      <OurStoryCard />
+    <div className={'m-auto flex flex-col items-start gap-16 px-4 text-left'}>
+      <h1
+        className={
+          'text-[min(calc((100vw-32px)/5.2),96px)] font-black leading-[.85]'
+        }
+      >
+        REVIVE 25
+      </h1>
+
+      <h2
+        className={
+          'text-[min(calc((100vw-32px)/6.3),53px)] font-black leading-[1]'
+        }
+      >
+        Prayer & Worship
+      </h2>
+
+      <h2
+        className={
+          'text-[min(calc((100vw-32px)/7.1),54px)] font-black leading-[1]'
+        }
+      >
+        Signs & Wonders
+      </h2>
+
+      <h2
+        className={
+          'text-[min(calc((100vw-32px)/7.3),59.5px)] font-black leading-[1]'
+        }
+      >
+        Dec 27th - 29th
+      </h2>
     </div>
   )
 }
